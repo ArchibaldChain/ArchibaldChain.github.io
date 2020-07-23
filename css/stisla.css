@@ -51,7 +51,7 @@ html, body {
 
 .overlay {
 	background-color: #000;
-	opacity: .85;
+	opacity: .55;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -156,6 +156,8 @@ html, body {
 
 .navbar.main-navbar.bg-dark {
 	background-color: #000 !important;
+	z-index: 2; /*makesure the navbar will cover head*/
+	opacity: 0.8;
 }
 
 .navbar.main-navbar .navbar-brand {
@@ -270,13 +272,14 @@ html, body {
 	line-height: 1.3em;
 }
 
+
 .hero .text h1 .bold {
 	font-weight: 600;
 }
 
 .hero .text p.lead {
 	margin-bottom: 20px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	letter-spacing: 1.5px;
 	line-height: 0;
 	font-size: 16px;
@@ -340,7 +343,7 @@ section.bg-reverse {
 }
 
 section.bg-overlay {
-	background-color: rgba(0,0,0,0.85);
+	background-color: rgba(0,0,0,0.15);
 }
 
 section.padding {
