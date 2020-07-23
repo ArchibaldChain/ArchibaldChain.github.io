@@ -157,7 +157,7 @@ html, body {
 .navbar.main-navbar.bg-dark {
 	background-color: #000 !important;
 	z-index: 2; /*makesure the navbar will cover head*/
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .navbar.main-navbar .navbar-brand {
