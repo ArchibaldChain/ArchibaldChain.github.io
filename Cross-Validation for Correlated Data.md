@@ -230,7 +230,7 @@ let $n = I\times J\times K$
 
 $\sigma_\text{cluster} = 1, \sigma_\text{subject1} = 1, \sigma_\text{subject2}=3, \sigma_\epsilon = 1$
 
-$V_\text{cluster} = Z_\text{cluster}   [\sigma_\text{cluster}, \dots \sigma_\text{cluster}]_{1 \times I} ^\top Z_\text{cluster} ^\top$ 
+$V_\text{cluster} = Z_\text{cluster}   (\sigma_\text{cluster} \text{I}_{I \times I}) Z_\text{cluster} ^\top$ 
 
 $V_\text{without cluster} = Z_\text{subject}   \text{diag}[\sigma_\text{subject1}, \sigma_\text{subject2}^2\dots \sigma_\text{subject1}, \sigma_\text{subject2}^2]_{1 \times IJ} ^\top Z_\text{subject}^\top + \sigma_\epsilon \text{I}$
 
@@ -286,31 +286,31 @@ $$
 
 ##### 4. Get the estimated variance matrix
 
-Using LMER RMEL to estimate $\hat \sigma_\text{cluster}, \hat\sigma_\text{subject1}, \hat\sigma_\text{subject2},\hat \sigma_\epsilon $ 
+Using LMER RMEL on training set to estimate $\hat \sigma_\text{cluster}, \hat\sigma_\text{subject1}, \hat\sigma_\text{subject2},\hat \sigma_\epsilon $ 
 
-$\hat V_\text{cluster} = Z_\text{cluster} ^\top  [\hat\sigma_\text{cluster}, \dots \hat\sigma_\text{cluster}]_{1 \times I} ^\top Z_\text{cluster}$ 
+$\hat V_\text{cluster} = Z_\text{cluster} ^\top    (\hat \sigma_\text{cluster} \text{I}_{I \times I})  Z_\text{cluster}$ 
 
-$\hat V_\text{without cluster} = Z_\text{subject} ^\top  [\hat\sigma_\text{subject1}, \hat\sigma_\text{subject2}^2\dots \hat\sigma_\text{subject1}, \hat\sigma_\text{subject2}^2]_{1 \times IJ} ^\top Z_\text{subject} + \hat\sigma_\epsilon \text{I}$
+$\hat V_\text{without cluster} = Z_\text{subject} ^\top \text{diag} [\hat\sigma_\text{subject1}, \hat\sigma_\text{subject2}^2\dots \hat\sigma_\text{subject1}, \hat\sigma_\text{subject2}^2]_{1 \times IJ} ^\top Z_\text{subject} + \hat\sigma_\epsilon \text{I}$
 
 $\hat V = \hat V_\text{cluster} + \hat V_\text{without cluster} $
 
 ##### GLS Formula 
 
 $$
-\hat Y = (X^\top V^{-1} X)^{-1} V^{-1}X^\top Y
+\hat Y = (X^\top V^{-1} X)^{-1} X^ \top V^{-1} Y
 $$
 
 ##### 5. Calculate the $H_{cv}$
 
 $$
-H_{cv(i,-i)} = (X_{-i}^\top V_{(-i,-i)}^{-1} X_{-i})^{-1} V_{(-i,-i)}^{-1}X_{-i}^\top
+H_{cv(i,-i)} = (X_{-i}^\top V_{(-i,-i)}^{-1} X_{-i})^{-1}X_{-i}^\top  V_{(-i,-i)}^{-1}
 $$
 
-The i-th row  i-th column of $H_{cv}$ is zero. The entries of i-th row except i-th column is calculated by the formula above.
+where $X_{-i}$ is $X$ without the i-th row, and $V_{(-i,-i)}$ is $V$ without i-th row and i-th column. The i-th row  i-th column of $H_{cv}$ is zero, and $H_{cv(i,-i)}$ is the i-th row without i-th column of $H_{cv}$.
 
 And 
 $$
-\hat H_{cv(i,-i)} = (X_{-i}^\top \hat V_{(-i,-i)}^{-1} X_{-i})^{-1} \hat V_{(-i,-i)}^{-1}X_{-i}^\top
+\hat H_{cv(i,-i)} = (X_{-i}^\top \hat V_{(-i,-i)}^{-1} X_{-i})^{-1} X_{-i}^\top \hat V_{(-i,-i)}^{-1}
 $$
 
 ##### 6. Calculate $Y_{cv}$ and  $\hat Y_{cv}$.
@@ -338,11 +338,12 @@ $$
   \hat w = \frac{2}{n} \mathop{tr}(\hat H_{cv} \hat V)
   $$
   
-
+  where $V_{X_r}$ is computed variance of covariates $X\beta$.
+  
 - Correction and for same $\boldsymbol{u}$ and estimated correction
   $$
   w = \frac{2}{n}[ \mathop{tr}(H_{cv} ( V_{X_r} + V)) - \mathop{tr}(H_{cv} (  V_\text{cluster})]\\
-  \hat w = \frac{2}{n} [\mathop{tr}(\hat H_{cv} \hat V) - \mathop{tr}(\hat H_{cv} \hat V_\text{cluster}))]\\
+  \hat w = \frac{2}{n} [\mathop{tr}(\hat H_{cv} \hat V) - \mathop{tr}(\hat H_{cv} \hat V_\text{cluster}))]\\
   $$
 
 
@@ -363,4 +364,3 @@ $$
   $$
   \text{Test Error} = \frac{1}{n} (Y_{te0} -\hat Y_{te} )^2
   $$
-  
