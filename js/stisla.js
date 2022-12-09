@@ -34,15 +34,16 @@ $(function () {
 
 	$(window).scroll(function () {
 		let $this = $(this);
-		//if ($this.scrollTop() > $(".hero").outerHeight() - 150) 
-		if ($this.scrollTop() > $(".hero").outerHeight() / 8) {
+		// navbar become dark when scrolling down
+		// if ($this.scrollTop() > $(".hero").outerHeight() - 150) {
+		if ($this.scrollTop() > $(".hero").outerHeight() / 10) {
 			$(".main-navbar").addClass("bg-dark");
 
 		} else {
 			$(".main-navbar").removeClass("bg-dark");
 		}
 
-		$(".navbar.main-navbar.bg-dark").style.opacity
+		// $(".navbar.main-navbar.bg-dark").style.opacity
 
 
 		$("section").each(function () {
