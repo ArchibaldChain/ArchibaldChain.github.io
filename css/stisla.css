@@ -437,6 +437,11 @@ section.callout h3 {
 	color: #ccc;
 }
 
+.meta .icon {
+	font-size: 20px;
+	color: #000
+}
+
 .list-item .desc h2 {
 	font-size: 16px;
 	text-transform: uppercase;

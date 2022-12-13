@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="weava-extension-context" data-weava-installed="1" style="height: auto;">
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-sheet"></style>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		body {
+			transition: opacity ease-in 0.2s;
+		}
+
+		body[unresolved] {
+			opacity: 0;
+			display: block;
+			overflow: hidden;
+			position: relative;
+		}
+	</style>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="author" content="Kodinger">
+	<meta name="keyword" content="Kodinger, template, html5, css3, bootstrap4">
+	<meta name="description" content="HTML5 and CSS3 Template Based on Bootstrap 4">
+	<title>I'm Archibald</title>
+	<link rel="stylesheet" href="../ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" href="../css/stisla.css">
+	<style></style>
+
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1088.0" data-gr-ext-installed="" class="vsc-initialized"
+	style="overflow: hidden;">
+	<div class="article-read" style="display: block;">
+		<div class="article-read-inner">
+			<div class="article-back">
+				<a class="btn btn-outline-primary" href="../index.html#project">
+					<i class="ion ion-chevron-left"></i>
+					Back
+				</a>
+			</div>
+			<h1 class="article-title">Cross-validation Correction For Machine Learing in Genomics Datasets</h1>
+			<div class="meta">
+				<a class="icon" href="https://github.com/ArchibaldChain/CVc_in_bio_informatics" target="_blank">
+					<i class="ion-social-github"></i>
+				</a>
+			</div>
+			<div class="article-metas">
+				<div class="meta"> Oct. 2021-Present</div>
+				<div class="meta"> Genomics</div>
+				<div class="meta"> machine learning</div>
+				<div class="meta"> cross-validation</div>
+				<!-- <i class="ion-social-github"></i> -->
+
+			</div>
+			<figure class="article-picture"><img src="CVc/bioinformatics.jpg"></figure>
+			<div class="article-content">
+				<h4>Background</h4></br>
+				<p>
+					In genomics dataset, the correlation between indivduals are very high,
+					because most of the gene between indivduals are the same except few variants.
+					Some machine learning algorithms like <b>Linear Mixed Model (LMM),
+						Sparse Bayesian Regression, Bayesian Sparse Linear Mixed Model (BSLMM)</b>, etc are wildely
+					used in genomic analyzing and phynomics predictions. because the high correlation between
+					individual, data leakage will happen in the process of calculating the
+					<b>cross-validation (CV)</b> error,
+					which causes the cross-validation underestimated the true prediction error.
+				</p>
+
+				<h4>Solution</h4></br>
+				<p>
+					We used a method with a covariance structure to correct the CV error.
+					We correct CV errors by adding a correction term.
+					You can find the definition and methods using this
+					<a href="./CVc/Cross-Validation for Correlated Data.html" target="_blank">link</a>.
+				</p>
+				<h4>Simulation and Result</h4></br>
+				<p>
+					We use the 1000-genomics project to simulate the cross-validation correction.
+					The simulation procedure can be found <a href="#">here</a>.
+					We simulated 1000 times. The distribution of CV error corrected CV error, and
+					the test error is shown below. The below graph shows the mean of the corrected CV (green vertical
+					line)
+					is closer to the test error (black vertical line) than the CV error (orange vertical line).
+				</p>
+			</div>
+			<figure class="article-picture"><img src="CVc/GLS.png"></figure>
+		</div>
+	</div>
+
+
+
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../bootstrap/bootstrap.min.js"></script>
+	<script src="../js/jquery.easeScroll.js"></script>
+	<script src="../sweetalert/sweetalert.min.js"></script>
+	<script src="../js/stisla.js"></script>
+
+
+
+
+	<div id="torrent-scanner-popup" style="display: none;"></div>
+	<div style="clear: both;"></div>
+	<app-weava-root id="weava-root" class="weava" ng-version="12.2.16"></app-weava-root>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>
