@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="sweetalert/dist/sweetalert.css">
 	<link rel="stylesheet" href="css/stisla.css">
-	<!-- <link rel="stylesheet" href="css/timeline.css"> -->
+	<link rel="stylesheet" href="css/timeline.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 						<a class="nav-link smooth-link" href="#hero">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link smooth-link" href="#otherlink">Other Links</a>
+						<a class="nav-link smooth-link" href="#Experience">Experience</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link smooth-link" href="#project">Projects</a>
@@ -62,52 +62,86 @@
 					<a href="https://opensource.org/licenses/MIT" target="_blank">Under the MIT License</a>
 				</div>
 			</div>
+
+			<div class="other-link">
+				<a class="icon" href="https://www.linkedin.com/in/yanzhao-qian/" target="_blank">
+					<i class="ion-social-linkedin"></i>
+				</a>
+				<a class="icon" href="https://github.com/ArchibaldChain" target="_blank">
+					<i class="ion-social-github"></i>
+				</a>
+				<a class="icon" href="./Yanzhao Qian Data Scientist.pdf" target="_blank">
+					<i class="ion-document-text"></i>
+				</a>
+			</div>
 		</div>
 	</section>
 
-	<section class="padding" id="otherlink">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-4 col-sm-12">
-					<div class="list-item">
-						<a class="icon" href="https://www.linkedin.com/in/yanzhao-qian/" target="_blank">
-							<!-- <i class="ion-code"></i> -->
-							<i class="ion-social-linkedin"></i>
-						</a>
-						<div class="desc">
-							<!-- <h2><a href="https://www.linkedin.com/in/yanzhao-qian-997409185/" target="_blank">Linkedin
-								</a></h2> -->
-							<h2>LINKEDIN</h2>
-							<!-- <a href="#" class="more">Learn More</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 col-sm-12">
-					<div class="list-item">
-						<a class="icon" href="https://github.com/ArchibaldChain" target="_blank">
-							<i class="ion-social-github"></i>
-						</a>
-						<div class="desc">
-							<h2>Github</h2>
-							<!-- <a href="#" class="more">Learn More</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 col-sm-12">
-					<div class="list-item no-spacing">
-						<a class="icon" href="./Yanzhao Qian Data Scientist.pdf" target="_blank">
-							<!-- <i class="ion-paintbrush"></i> -->
-							<!-- <i class="ion-document-text"></i> -->
-							<i class="ion-document-text"></i>
-						</a>
-						<div class="desc">
-							<h2>Resume</h2>
-							<!-- <a href="#" class="more">Learn More</a> -->
-						</div>
-					</div>
-				</div>
+
+	<section class="padding container" , id="Experience">
+		<h2 class="section-title">My Experience</h2>
+		<div class="timeline">
+			<div class="timeline__component">
+				<div class="timeline__date timeline__date--right">August 30, 2017</div>
 			</div>
+			<div class="timeline__middle">
+				<div class="timeline__point"></div>
+			</div>
+			<div class="timeline__component timeline__component--bg">
+				<h2 class="timeline__title">Published First Video</h2>
+				<p class="timeline__paragraph">
+					My first YouTube video was a tutorial on how to build a client-server sockets app in Java.
+				</p>
+			</div>
+			<div class="timeline__component timeline__component--bg">
+				<h2 class="timeline__title">5,000 Subscribers Q&A</h2>
+				<p class="timeline__paragraph">
+					To celebrate 5,000 subscribers, I published a video answering some of the most popular questions
+					which
+					my viewers had asked me since starting my YouTube channel.
+				</p>
+				<p class="timeline__paragraph">
+					I didn't even remove the jumper in the background before recording that video 🤣
+				</p>
+			</div>
+			<div class="timeline__middle">
+				<div class="timeline__point"></div>
+			</div>
+			<div class="timeline__component">
+				<div class="timeline__date">February 25, 2019</div>
+			</div>
+			<div class="timeline__component">
+				<div class="timeline__date timeline__date--right">June 3, 2020</div>
+			</div>
+			<div class="timeline__middle">
+				<div class="timeline__point"></div>
+				<!-- <div class="timeline__point timeline__point--bottom"></div> -->
+				<div class="triangle-down"></div>
+			</div>
+			<div class="timeline__component timeline__component--bottom timeline__component--bg">
+				<h2 class="timeline__title">First Live Stream</h2>
+				<p class="timeline__paragraph">
+					In my first ever live stream, I couldn't put my cup of coffee down.
+				</p>
+			</div>
+			<!-- <div class="timeline__component timeline__component--bottom timeline__component--bg">
+				<h2 class="timeline__title">Vertical Timeline</h2>
+				<p class="timeline__paragraph">
+					Published this video.
+				</p>
+				<p class="timeline__paragraph">
+					Link to code in description 🔽
+				</p>
+			</div>
+			<div class="timeline__middle">
+				<div class="timeline__point"></div>
+				<div class="timeline__point timeline__point--bottom"></div>
+			</div>
+			<div class="timeline__component timeline__component--bottom">
+				<div class="timeline__date">June 28, 2021</div>
+			</div> -->
 		</div>
+
 	</section>
 
 	<section class="padding bg-grey" id="project">
@@ -125,7 +159,8 @@
 								<h4 class="card-title"><a href="./projects/project-CVc.html" data-id="1">
 										Cross-validation Correction For Machine Learing in Genomics Datasets
 									</a></h4>
-								<p class="card-text">In Genomics Dataset, every indivdual has very similar gene except a
+								<p class="card-text">In Genomics Dataset, every indivdual has very similar gene
+									except a
 									few variants which causes machine learning methods are easily over-fitting.
 									Therefore CV which is used for estimating test error is underestimated.
 								</p>
@@ -147,8 +182,10 @@
 										Communities
 									</a></h4>
 								<p class="card-text">
-									We visualized, processed, and analyzed the Internet Speed dataset provided by Ookla
-									company. We used logistic regression to predict future internet speed situation for
+									We visualized, processed, and analyzed the Internet Speed dataset provided by
+									Ookla
+									company. We used logistic regression to predict future internet speed situation
+									for
 									and gave some suggestions according to it.
 								</p>
 								<div class="text-right">
@@ -191,7 +228,8 @@
 							In order to persuade the master's degree at U of C I relocated to Calgary in 2021.
 						</p>
 						<p>
-							My interest in machine learning drives me to study further in the field of statistics and to
+							My interest in machine learning drives me to study further in the field of statistics
+							and to
 							teach myself coding.
 							I mainly focus on two things in machine learning:
 							building a stronger artificial intelligence that can assists people,

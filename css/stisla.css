@@ -412,6 +412,12 @@ section.callout h3 {
 	margin: 0;
 }
 
+.other-link .icon {
+	font-size: 30px;
+	flex: 1;
+	color: rgb(252, 249, 249);
+}
+
 /*list*/
 .list-item {
 	display: flex;
@@ -465,7 +471,7 @@ section.callout h3 {
 article.card {
 	border: none;
 	box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
 	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
 	-ms-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
 	-o-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
