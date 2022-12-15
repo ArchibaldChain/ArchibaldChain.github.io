@@ -16,9 +16,6 @@
     padding: 1.5em;
     background: rgba(235, 234, 234, 0.5);
     box-shadow: 0 0 5px rgb(0, 0, 0, 0.3);
-    /* -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .2); */
-    /* -ms-box-shadow: 0 0 40px rgba(0, 0, 0, .5);
-    -o-box-shadow: 0 0 40px rgba(0, 0, 0, .5); */
     border-radius: 0%;
 }
 
@@ -30,7 +27,7 @@
 .timeline__middle {
     position: relative;
     /* background: #070707; */
-    background: #272727;
+    background: #000000;
     margin: 50, 50, auto;
 }
 
@@ -73,6 +70,13 @@
     line-height: 28px;
     margin: 0;
     font-weight: bold;
+}
+
+.timeline__subtitle {
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px dotted #666;
+    text-decoration: none;
 }
 
 .timeline__paragraph {
