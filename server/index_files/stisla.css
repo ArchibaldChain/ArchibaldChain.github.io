@@ -1,6 +1,5 @@
 /*reset*/
-html,
-body {
+html, body {
 	height: 100% !important;
 }
 
@@ -8,11 +7,11 @@ body {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
 	background-color: #fff;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -23,11 +22,11 @@ body {
 	background-size: 100%;
 	width: 80px;
 	height: 80px;
-	box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-	-ms-box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-	-o-box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 40px rgba(0,0,0,0.05);
+	-webkit-box-shadow: 0 0 40px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 0 40px rgba(0,0,0,0.05);
+	-ms-box-shadow: 0 0 40px rgba(0,0,0,0.05);
+	-o-box-shadow: 0 0 40px rgba(0,0,0,0.05);
 	z-index: 999999;
 }
 
@@ -52,22 +51,14 @@ body {
 
 .overlay {
 	background-color: #000;
-	opacity: .55;
+	opacity: .85;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 }
-
-.tlinks {
-	text-indent: -9999px;
-	height: 0;
-	line-height: 0;
-	font-size: 0;
-	overflow: hidden;
-}
-
+.tlinks{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
 /*article read*/
 .article-read {
 	display: none;
@@ -154,7 +145,6 @@ body {
 .article-read .article-content {
 	line-height: 28px;
 }
-
 /*navbar*/
 .navbar.main-navbar {
 	position: fixed;
@@ -166,9 +156,6 @@ body {
 
 .navbar.main-navbar.bg-dark {
 	background-color: #000 !important;
-	z-index: 2;
-	/*makesure the navbar will cover head*/
-	opacity: 0.9;
 }
 
 .navbar.main-navbar .navbar-brand {
@@ -186,7 +173,7 @@ body {
 	padding: 0 20px;
 	font-size: 14px;
 	letter-spacing: 1px;
-	color: rgba(255, 255, 255, .75);
+	color: rgba(255,255,255,.75);
 	position: relative;
 	transition: all .5s;
 	-webkit-transition: all .5s;
@@ -231,7 +218,6 @@ body {
 
 .navbar.main-navbar .form-inline {
 	margin-left: 15px;
-	/* margin-top: 10px; */
 }
 
 .navbar.main-navbar .form-inline .btn {
@@ -284,14 +270,13 @@ body {
 	line-height: 1.3em;
 }
 
-
 .hero .text h1 .bold {
 	font-weight: 600;
 }
 
 .hero .text p.lead {
 	margin-bottom: 20px;
-	/* text-transform: uppercase; */
+	text-transform: uppercase;
 	letter-spacing: 1.5px;
 	line-height: 0;
 	font-size: 16px;
@@ -355,7 +340,7 @@ section.bg-reverse {
 }
 
 section.bg-overlay {
-	background-color: rgba(0, 0, 0, 0.15);
+	background-color: rgba(0,0,0,0.85);
 }
 
 section.padding {
@@ -412,12 +397,6 @@ section.callout h3 {
 	margin: 0;
 }
 
-.other-link .icon {
-	font-size: 30px;
-	flex: 1;
-	color: rgb(252, 249, 249);
-}
-
 /*list*/
 .list-item {
 	display: flex;
@@ -443,11 +422,6 @@ section.callout h3 {
 	color: #ccc;
 }
 
-.meta .icon {
-	font-size: 20px;
-	color: #000
-}
-
 .list-item .desc h2 {
 	font-size: 16px;
 	text-transform: uppercase;
@@ -470,11 +444,11 @@ section.callout h3 {
 /*article*/
 article.card {
 	border: none;
-	box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
-	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-ms-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-o-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-webkit-box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-ms-box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-o-box-shadow: 0 0 40px rgba(0,0,0,.05);
 	margin-bottom: 60px;
 }
 
@@ -540,10 +514,10 @@ article.card .card-more i {
 	border-width: 2px;
 	margin-right: 1px;
 	border-color: transparent;
-	box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
-	-o-box-shadow: 0 0 40px rgba(0, 0, 0, .05);
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-webkit-box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 0 40px rgba(0,0,0,.05);
+	-o-box-shadow: 0 0 40px rgba(0,0,0,.05);
 	padding: 30px 25px;
 	padding-right: 130px;
 	border-radius: 30px !important;
@@ -598,7 +572,7 @@ article.card .card-more i {
 	border: 2px solid #fff;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: 800;
 	letter-spacing: 2px;
 	margin-bottom: 20px;
@@ -610,9 +584,9 @@ article.card .card-more i {
 }
 
 .projects-details .projects-description {
-	line-height: 30px;
+	line-height: 28px;
 	margin-top: 20px;
-	color: rgb(214, 210, 210);
+	color: #999;
 }
 
 .projects-details .projects-cta {
@@ -648,11 +622,11 @@ form.contact .form-control {
 	height: 50px;
 	padding: 15px;
 	border-color: transparent;
-	box-shadow: 0 0 10px rgba(0, 0, 0, .01);
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .01);
-	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, .01);
-	-o-box-shadow: 0 0 10px rgba(0, 0, 0, .01);
-	-ms-box-shadow: 0 0 10px rgba(0, 0, 0, .01);
+	box-shadow: 0 0 10px rgba(0,0,0,.01);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.01);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.01);
+	-o-box-shadow: 0 0 10px rgba(0,0,0,.01);
+	-ms-box-shadow: 0 0 10px rgba(0,0,0,.01);
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -754,21 +728,17 @@ footer i {
 		left: 20px;
 		right: 20px;
 	}
-
 	.navbar.main-navbar .navbar-collapse {
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
-
 	.navbar.main-navbar .navbar-nav .nav-item a {
 		display: inline-block;
 		padding: 10px 0;
 	}
-
 	.navbar.main-navbar .navbar-nav .nav-item a:after {
 		display: none;
 	}
-
 	.navbar.main-navbar .form-inline {
 		margin-left: 0;
 	}
@@ -778,40 +748,32 @@ footer i {
 	.hero .text h1 {
 		font-size: 34px;
 	}
-
 	.hero .text p.lead {
 		line-height: normal;
 	}
-
 	.projects-picture {
 		margin-bottom: 40px;
 	}
-
 	.maps {
 		margin-bottom: 40px;
 		width: 100%;
 		height: 250px;
 	}
-
 	section.callout .text {
 		text-align: center;
 		margin-bottom: 20px;
 	}
-
 	section.callout .cta {
 		text-align: center;
 	}
-
 	.row.col-spacing {
 		margin-left: -15px;
 		margin-right: -15px;
 	}
-
 	.row.col-spacing [class^="col-"] {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-
 	.list-item {
 		padding-bottom: 40px;
 	}
