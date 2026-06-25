@@ -14,6 +14,71 @@ const navItems = [
 	{ href: "#contact", label: "Contact Me" },
 ];
 
+const journey = [
+	{
+		date: "2017-2021",
+		stage: "Mathematics & Discovering AI",
+		organization: "Southern University of Science and Technology (China)",
+		icon: { type: "image", src: "/img/sustech.png", alt: "Southern University of Science and Technology logo" },
+		description:
+			"My journey began with a degree in Applied Mathematics, where I developed a strong foundation in mathematical modeling, optimization, and statistics. During this time, I became fascinated by machine learning and started teaching myself programming, realizing that mathematics could be used to build intelligent systems capable of solving real-world problems.",
+		learned: "Mathematical modeling, optimization, statistics, programming, and machine learning fundamentals.",
+	},
+	{
+		date: "2021-2023",
+		stage: "Statistics & Machine Learning Research",
+		organization: "University of Calgary",
+		icon: { type: "image", src: "/img/UofCCoat.svg.png", alt: "University of Calgary logo" },
+		description:
+			"I moved to Canada in 2021 to pursue an MSc in Statistics at the University of Calgary. My research focused on improving cross-validation methods for machine learning models in genomic prediction, combining statistical theory with large-scale computation. Alongside my thesis, I also worked on reinforcement learning for robotic manipulation and participated in academic research and presentations.",
+		learned: "Research, statistical modeling, machine learning, and scientific thinking.",
+	},
+	{
+		date: "2023",
+		stage: "Building AI Through Student Innovation",
+		organization: "Tech Start UCalgary",
+		icon: { type: "image", src: "/img/tech-start-black.png", alt: "Tech Start logo" },
+		description:
+			"Before entering industry, I joined Tech Start to collaborate with multidisciplinary teams on early-stage technology projects. It was my first experience building software products in a fast-paced environment and working closely with people from different technical backgrounds.",
+		learned: "Product thinking, rapid prototyping, teamwork, and startup culture.",
+	},
+	{
+		date: "2023",
+		stage: "Industrial Data Science",
+		organization: "Cenozon Inc.",
+		icon: { type: "ion", name: "ion-stats-bars" },
+		description:
+			"At Cenozon, I worked with industrial pipeline data, developing machine learning models for corrosion prediction and risk analysis. This was my first opportunity to apply data science to critical infrastructure and large engineering datasets.",
+		learned: "Industrial analytics, predictive modeling, data engineering, and working with domain experts.",
+	},
+	{
+		date: "2023-2024",
+		stage: "AI & Machine Learning in Production",
+		organization: "Intact Financial Corporation",
+		icon: { type: "ion", name: "ion-cloud" },
+		description:
+			"At Intact, I developed NLP and generative AI solutions using large-scale customer service data. I built machine learning pipelines, experimented with LLMs, and collaborated with engineering teams to bring models closer to production environments.",
+		learned: "Production machine learning, NLP, cloud platforms, MLOps, and software engineering.",
+	},
+	{
+		date: "2024-Present",
+		stage: "Energy Analytics & Intelligent Infrastructure",
+		organization: "BBA Engineering",
+		icon: { type: "ion", name: "ion-flash" },
+		description:
+			"My work has evolved toward energy analytics, where I apply machine learning, forecasting, optimization, and software engineering to power system challenges. My projects include electricity load forecasting, battery energy storage optimization, transmission asset risk analysis, OT/SCADA cybersecurity automation, and decision-support tools for electric utilities.",
+		learned: "Forecasting, optimization, power systems, cybersecurity, and decision support for critical infrastructure.",
+	},
+	{
+		date: "Today",
+		stage: "Building Intelligent Systems",
+		organization: "Independent exploration",
+		icon: { type: "ion", name: "ion-rocket" },
+		description:
+			"Today, I'm interested in applying AI, optimization, and data science to complex real-world systems. Whether in energy, finance, or other data-intensive industries, I enjoy building software and intelligent decision-support tools that help people solve challenging problems. Outside of work, I continue exploring AI-assisted development, experimenting with new technologies, and building software products that turn ideas into reality.",
+	},
+];
+
 const projects = [
 	{
 		image: "/projects/CVc/bioinformatics.jpg",
@@ -52,55 +117,31 @@ const projects = [
 	/>
 
 	<section class="padding container" id="Experience">
-		<h2 class="section-title">My Experience</h2>
+		<h2 class="section-title">My Journey</h2>
 		<div class="timeline">
-			<div class="timeline__component">
-				<div class="timeline__date timeline__date--right">Aug. 2017 - June 2021</div>
-			</div>
-			<div class="timeline__middle"><div class="timeline__point"></div></div>
-			<div class="timeline__component timeline__component--bg">
-				<h2 class="timeline__title">
-					<img src="/img/sustech.png" height="35" alt="logo" />
-					Southern University of Science and Technology
-				</h2>
-				<p class="timeline__subtitle"><i>B.Sc.</i> Mathematics and Applied Mathematics</p>
-				<p class="timeline__paragraph">
-					My interest in understanding machine learning drives me to study applied math so I can look further into the algorithms.
-					During my studies in mathematics, I learned how to conduct rigorous proof and how the modern mathematics world is built.
-					I also learned the basics of optimization methods and computational mathematics that are commonly used in machine learning and statistics.
-				</p>
-			</div>
-			<div class="timeline__component timeline__component--bg">
-				<h2 class="timeline__title">
-					<img src="/img/UofCCoat.svg.png" height="35" alt="logo" />
-					University of Calgary
-				</h2>
-				<p class="timeline__subtitle"><i>M.Sc.</i> Applied Statistics</p>
-				<p class="timeline__paragraph">
-					During this stage, I learned generalized linear models, computational statistics, hands-on deep learning, etc, which gives me a solid foundation for career in data scientist.
-					My research is focused on the cross-validation problem in bioinformatics.
-				</p>
-			</div>
-			<div class="timeline__middle"><div class="timeline__point"></div></div>
-			<div class="timeline__component"><div class="timeline__date">Sept. 2021 - Present</div></div>
-			<div class="timeline__component">
-				<div class="timeline__date timeline__date--right">Oct. 2022 - Present</div>
-			</div>
-			<div class="timeline__middle">
-				<div class="timeline__point"></div>
-				<div class="triangle-down"></div>
-			</div>
-			<div class="timeline__component timeline__component--bottom timeline__component--bg">
-				<h2 class="timeline__title">
-					<img src="/img/tech-start-black.png" height="40" alt="logo" />
-					Tech Start
-				</h2>
-				<p class="timeline__subtitle">Developer</p>
-				<p class="timeline__paragraph">
-					Tech Start is a software club at the University of Calgary. I am a developer in one of the project teams.
-					Our project is using reinforcement learning to train a robot arm so it can fit for different tasks.
-				</p>
-			</div>
+			{
+				journey.map((item) => (
+					<article class="timeline__item">
+						<div class="timeline__date">{item.date}</div>
+						<div class="timeline__middle"><div class="timeline__point"></div></div>
+						<div class="timeline__component timeline__component--bg">
+							<h2 class="timeline__title">
+								<span class="timeline__icon" aria-hidden="true">
+									{item.icon.type === "image" ? (
+										<img src={item.icon.src} alt={item.icon.alt} />
+									) : (
+										<i class={item.icon.name}></i>
+									)}
+								</span>
+								<span>{item.stage}</span>
+							</h2>
+							<p class="timeline__subtitle">{item.organization}</p>
+							<p class="timeline__paragraph">{item.description}</p>
+							{item.learned && <p class="timeline__learned"><strong>What I learned:</strong> {item.learned}</p>}
+						</div>
+					</article>
+				))
+			}
 		</div>
 	</section>
 
