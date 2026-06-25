@@ -1,6 +1,10 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+
+const preserveMarkdownBasename = ({ entry }: { entry: string }) => entry.replace(/\.md$/, "");
 
 const projects = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/projects", generateId: preserveMarkdownBasename }),
 	schema: z.object({
 		title: z.string(),
 		date: z.string(),
@@ -13,6 +17,7 @@ const projects = defineCollection({
 });
 
 const articles = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/articles", generateId: preserveMarkdownBasename }),
 	schema: z.object({
 		title: z.string(),
 		date: z.string(),
