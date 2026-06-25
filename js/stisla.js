@@ -1,148 +1,182 @@
-$(function () {
-	let loading = {
-		show: function () {
-			$("body").append("<div class='main-loading'></div>");
-		},
-		hide: function () {
-			$(".main-loading").remove();
-		}
-	}
-	$("body").easeScroll();
-
-	$("[data-bg]").each(function () {
-		let $this = $(this),
-			$bg = $this.attr("data-bg");
-
-		$this.css({
-			backgroundImage: 'url(' + $bg + ')',
-			backgroundPosition: 'center',
-			backgroundAttachment: 'fixed',
-			backgroundSize: 'center'
-		});
-		$this.prepend("<div class='overlay'></div>");
-	});
-
-	$(".smooth-link").click(function () {
-		let $this = $(this),
-			$target = $($this.attr("href"));
-		$("html, body").animate({
-			scrollTop: $target.offset().top - ($(".main-navbar").outerHeight() - 1)
-		});
-
-		return false;
-	});
-
-	$(window).scroll(function () {
-		let $this = $(this);
-		// navbar become dark when scrolling down
-		// if ($this.scrollTop() > $(".hero").outerHeight() - 150) {
-		if ($this.scrollTop() > $(".hero").outerHeight() / 10) {
-			$(".main-navbar").addClass("bg-dark");
-
-		} else {
-			$(".main-navbar").removeClass("bg-dark");
-		}
-
-		// $(".navbar.main-navbar.bg-dark").style.opacity
-
-
-		$("section").each(function () {
-			if ($this.scrollTop() >= ($(this).offset().top - $(".main-navbar").outerHeight())) {
-				$(".smooth-link").parent().removeClass("active");
-				$(".smooth-link[href='#" + $(this).attr("id") + "']").parent().addClass('active');
-			}
-		});
-	});
-
-	$("[data-toggle=read]").click(function () {
-		let $this = $(this),
-			$id = $this.attr("id");
-
-		$("body").css({
-			overflow: "hidden"
-		});
-
-		let $element = '<div class="article-read">';
-		$element += '<div class="article-read-inner">';
-		$element += '<div class="article-back">';
-		$element += '<a class="btn btn-outline-primary"><i class="ion ion-chevron-left"></i> Back</a>';
-		$element += '</div>';
-		$element += '<h1 class="article-title">{title}</h1>';
-		$element += '<div class="article-metas">';
-		$element += '<div class="meta">';
-		$element += '	{date}';
-		$element += '</div>';
-		$element += '<div class="meta">';
-		$element += '	{category}';
-		$element += '</div>';
-		$element += '<div class="meta">';
-		$element += '	{author}';
-		$element += '</div>';
-		$element += '</div>';
-		$element += '<figure class="article-picture"><img src="{picture}"></figure>';
-		$element += '<div class="article-content">';
-		$element += '{content}';
-		$element += '</div>';
-		$element += '</div>';
-		$element += '</div>';
-
-		$.ajax({
-			url: "mock/article.json",
-			dataType: 'json',
-			beforeSend: function () {
-				loading.show();
-			},
-			complete: function () {
-				loading.hide();
-			},
-			success: function (data) {
-				let reg = /{([a-zA-Z0-9]+)}/g,
-					res = [],
-					element = $element;
-				while (match = reg.exec($element)) {
-					element = element.replace('{' + match[1] + '}', data[match[1]]);
-				}
-
-				$("body").prepend(element);
-				$(".article-read").fadeIn();
-				$(document).on("click", ".article-back .btn", function () {
-					$(".article-read").fadeOut(function () {
-						$(".article-read").remove();
-						$("body").css({
-							overflow: 'auto'
-						});
-					});
-					return false;
-				});
-			}
-		});
-
-		return false;
-	});
-
-	$("#contact-form").submit(function () {
-		let $this = $(this);
-		$.ajax({
-			url: 'server/send.php',
-			type: "post",
-			data: $this.serialize(),
-			dataType: 'json',
-			beforeSend: function () {
-				loading.show();
-			},
-			complete: function () {
-				loading.hide();
-			},
-			success: function (data) {
-				if (data.status == true) {
-					swal("Success", data.data, "success");
-					$this[0].reset();
-				} else {
-					swal("Failed", data.data, "error");
-				}
-			}
-		});
-		return false;
-	});
-
-});
+"use strict";
+const selectors = {
+    articleBackButton: ".article-back .btn",
+    background: "[data-bg]",
+    body: "body",
+    collapseToggle: "[data-toggle=collapse][data-target]",
+    contactForm: "#contact-form",
+    mainNavbar: ".main-navbar",
+    mainLoading: ".main-loading",
+    readToggle: "[data-toggle=read]",
+    section: "section",
+    smoothLink: ".smooth-link",
+};
+const articleTemplate = `
+<div class="article-read">
+	<div class="article-read-inner">
+		<div class="article-back">
+			<a class="btn btn-outline-primary"><i class="ion ion-chevron-left"></i> Back</a>
+		</div>
+		<h1 class="article-title">{title}</h1>
+		<div class="article-metas">
+			<div class="meta">{date}</div>
+			<div class="meta">{category}</div>
+			<div class="meta">{author}</div>
+		</div>
+		<figure class="article-picture"><img src="{picture}"></figure>
+		<div class="article-content">{content}</div>
+	</div>
+</div>`;
+const loading = {
+    show() {
+        $(selectors.body).append("<div class='main-loading'></div>");
+    },
+    hide() {
+        $(selectors.mainLoading).remove();
+    },
+};
+function setupSmoothPageScroll() {
+    $(selectors.body).easeScroll();
+}
+function setupBackgroundImages() {
+    $(selectors.background).each(function () {
+        const $element = $(this);
+        const backgroundUrl = $element.attr("data-bg");
+        if (!backgroundUrl) {
+            return;
+        }
+        $element.css({
+            backgroundImage: `url(${backgroundUrl})`,
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            backgroundSize: "center",
+        });
+        $element.prepend("<div class='overlay'></div>");
+    });
+}
+function isHashLink(href) {
+    return Boolean(href && href.startsWith("#") && href.length > 1);
+}
+function setupAnchorScrolling() {
+    $(selectors.smoothLink).click(function () {
+        const href = $(this).attr("href");
+        if (!isHashLink(href)) {
+            return;
+        }
+        const $target = $(href);
+        const targetOffset = $target.offset();
+        const navbarHeight = $(selectors.mainNavbar).outerHeight();
+        if (!targetOffset) {
+            return;
+        }
+        $("html, body").animate({
+            scrollTop: targetOffset.top - (navbarHeight - 1),
+        });
+        return false;
+    });
+}
+function setupNavbarScrollState() {
+    $(window).scroll(function () {
+        const $window = $(this);
+        const heroHeight = $(".hero").outerHeight();
+        const navbarHeight = $(selectors.mainNavbar).outerHeight();
+        if ($window.scrollTop() > heroHeight / 10) {
+            $(selectors.mainNavbar).addClass("bg-dark");
+        }
+        else {
+            $(selectors.mainNavbar).removeClass("bg-dark");
+        }
+        $(selectors.section).each(function () {
+            const sectionId = $(this).attr("id");
+            const sectionOffset = $(this).offset();
+            if (!sectionId || !sectionOffset) {
+                return;
+            }
+            if ($window.scrollTop() >= sectionOffset.top - navbarHeight) {
+                $(selectors.smoothLink).parent().removeClass("active");
+                $(`${selectors.smoothLink}[href="#${sectionId}"]`).parent().addClass("active");
+            }
+        });
+    });
+}
+function setupCollapseToggles() {
+    document.querySelectorAll(selectors.collapseToggle).forEach((toggle) => {
+        const targetSelector = toggle.getAttribute("data-target");
+        if (!targetSelector) {
+            return;
+        }
+        const targetElement = document.querySelector(targetSelector);
+        if (!targetElement) {
+            return;
+        }
+        toggle.addEventListener("click", (event) => {
+            const isExpanded = targetElement.classList.toggle("show");
+            toggle.setAttribute("aria-expanded", String(isExpanded));
+            event.preventDefault();
+        });
+    });
+}
+function renderArticle(template, data) {
+    return template.replace(/{([a-zA-Z0-9]+)}/g, (_placeholder, key) => { var _a; return (_a = data[key]) !== null && _a !== void 0 ? _a : ""; });
+}
+function closeArticle() {
+    $(".article-read").fadeOut(function () {
+        $(".article-read").remove();
+        $(selectors.body).css({
+            overflow: "auto",
+        });
+    });
+    return false;
+}
+function setupArticleReader() {
+    $(selectors.readToggle).click(function () {
+        $(selectors.body).css({
+            overflow: "hidden",
+        });
+        $.ajax({
+            url: "mock/article.json",
+            dataType: "json",
+            beforeSend: loading.show,
+            complete: loading.hide,
+            success(data) {
+                $(selectors.body).prepend(renderArticle(articleTemplate, data));
+                $(".article-read").fadeIn();
+                $(document).on("click", selectors.articleBackButton, closeArticle);
+            },
+        });
+        return false;
+    });
+}
+function setupContactForm() {
+    $(selectors.contactForm).submit(function () {
+        const $form = $(this);
+        $.ajax({
+            url: "server/send.php",
+            type: "post",
+            data: $form.serialize(),
+            dataType: "json",
+            beforeSend: loading.show,
+            complete: loading.hide,
+            success(data) {
+                if (data.status === true) {
+                    swal("Success", data.data, "success");
+                    $form[0].reset();
+                }
+                else {
+                    swal("Failed", data.data, "error");
+                }
+            },
+        });
+        return false;
+    });
+}
+function initializeSite() {
+    setupSmoothPageScroll();
+    setupBackgroundImages();
+    setupAnchorScrolling();
+    setupNavbarScrollState();
+    setupCollapseToggles();
+    setupArticleReader();
+    setupContactForm();
+}
+$(initializeSite);

@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES2017",
+		"module": "none",
+		"strict": true,
+		"noImplicitAny": true,
+		"outFile": "js/stisla.js",
+		"sourceMap": false,
+		"removeComments": false
+	},
+	"include": ["src/stisla.ts"]
+}
