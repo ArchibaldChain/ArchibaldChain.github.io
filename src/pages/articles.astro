@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import { getCollection } from "astro:content";
+
+const articles = (await getCollection("articles"))
+	.map((article) => ({
+		slug: article.id.replace(/\.md$/, ""),
+		...article.data,
+	}))
+	.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+const navItems = [
+	{ href: "/#hero", label: "Home" },
+	{ href: "/#Experience", label: "Experience" },
+	{ href: "/#project", label: "Projects" },
+	{ href: "/#aboutme", label: "About Me" },
+	{ href: "/#contact", label: "Contact Me" },
+];
+---
+
+<BaseLayout title="Articles">
+	<Navbar items={navItems} languageHref="/Chinese.html" languageLabel="中文" />
+	<section class="padding bg-grey">
+		<div class="container">
+			<h2 class="section-title">Articles</h2>
+			<div class="section-body">
+				<div class="row col-spacing">
+					{articles.map((article) => (
+						<div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+								<div class="card-body">
+									<div class="card-subtitle mb-2 text-muted">{article.date}</div>
+									<h4 class="card-title"><a href={`/articles/${article.slug}.html`}>{article.title}</a></h4>
+									<p class="card-text">{article.description}</p>
+									<div class="text-right">
+										<a href={`/articles/${article.slug}.html`} class="card-more">
+											Read More
+											<i class="ion-ios-arrow-right"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+	<Footer />
+</BaseLayout>

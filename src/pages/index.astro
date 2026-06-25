@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Footer from "../components/Footer.astro";
+
+const navItems = [
+	{ href: "#hero", label: "Home" },
+	{ href: "#Experience", label: "Experience" },
+	{ href: "#project", label: "Projects" },
+	{ href: "#aboutme", label: "About Me" },
+	{ href: "#contact", label: "Contact Me" },
+];
+
+const projects = [
+	{
+		image: "/projects/CVc/bioinformatics.jpg",
+		date: "Oct. 2021 - Present",
+		title: "Cross-validation Correction For Machine Learing in Genomics Datasets",
+		description:
+			"In Genomics Dataset, every indivdual has very similar gene except a few variants which causes machine learning methods are easily over-fitting. Therefore CV which is used for estimating test error is underestimated.",
+		href: "/projects/project-CVc.html",
+	},
+	{
+		image: "/projects/Internet Speed/internet.jpg",
+		date: "May 2022",
+		title: "Statistical Analysis of Ookla Internet Speeds for Rural/Urban Canadian Communities",
+		description:
+			"We visualized, processed, and analyzed the Internet Speed dataset provided by Ookla company. We used logistic regression to predict future internet speed situation and gave some suggestions according to it.",
+		href: "/projects/project-InternetSpeed.html",
+	},
+	{
+		image: "/projects/Washsington DC Crime/crime density map.png",
+		date: "Apr. 2021",
+		title: "Data Analysis of Washington DC Crimes",
+		description:
+			"We processed and analyzed the Data of Washington DC Crimes that happened from 2019 to 2021. We classified districts in Washington DC into low, medium, and high severity areas using Kernel Density Estimation and K-means and visualized the crime severity in Python matplotlib.",
+	},
+];
+---
+
+<BaseLayout title="I'm Archibald" includeTimeline>
+	<Navbar items={navItems} languageHref="/Chinese.html" languageLabel="中文" />
+	<Hero
+		lead="We should consider every day lost on which we have not danced at least once. --Nietzsche"
+		headingPrefix="I'm "
+		highlight="Archibald"
+		headingSuffix=". Welcome to my website."
+		ctaLabel="About Me"
+	/>
+
+	<section class="padding container" id="Experience">
+		<h2 class="section-title">My Experience</h2>
+		<div class="timeline">
+			<div class="timeline__component">
+				<div class="timeline__date timeline__date--right">Aug. 2017 - June 2021</div>
+			</div>
+			<div class="timeline__middle"><div class="timeline__point"></div></div>
+			<div class="timeline__component timeline__component--bg">
+				<h2 class="timeline__title">
+					<img src="/img/sustech.png" height="35" alt="logo" />
+					Southern University of Science and Technology
+				</h2>
+				<p class="timeline__subtitle"><i>B.Sc.</i> Mathematics and Applied Mathematics</p>
+				<p class="timeline__paragraph">
+					My interest in understanding machine learning drives me to study applied math so I can look further into the algorithms.
+					During my studies in mathematics, I learned how to conduct rigorous proof and how the modern mathematics world is built.
+					I also learned the basics of optimization methods and computational mathematics that are commonly used in machine learning and statistics.
+				</p>
+			</div>
+			<div class="timeline__component timeline__component--bg">
+				<h2 class="timeline__title">
+					<img src="/img/UofCCoat.svg.png" height="35" alt="logo" />
+					University of Calgary
+				</h2>
+				<p class="timeline__subtitle"><i>M.Sc.</i> Applied Statistics</p>
+				<p class="timeline__paragraph">
+					During this stage, I learned generalized linear models, computational statistics, hands-on deep learning, etc, which gives me a solid foundation for career in data scientist.
+					My research is focused on the cross-validation problem in bioinformatics.
+				</p>
+			</div>
+			<div class="timeline__middle"><div class="timeline__point"></div></div>
+			<div class="timeline__component"><div class="timeline__date">Sept. 2021 - Present</div></div>
+			<div class="timeline__component">
+				<div class="timeline__date timeline__date--right">Oct. 2022 - Present</div>
+			</div>
+			<div class="timeline__middle">
+				<div class="timeline__point"></div>
+				<div class="triangle-down"></div>
+			</div>
+			<div class="timeline__component timeline__component--bottom timeline__component--bg">
+				<h2 class="timeline__title">
+					<img src="/img/tech-start-black.png" height="40" alt="logo" />
+					Tech Start
+				</h2>
+				<p class="timeline__subtitle">Developer</p>
+				<p class="timeline__paragraph">
+					Tech Start is a software club at the University of Calgary. I am a developer in one of the project teams.
+					Our project is using reinforcement learning to train a robot arm so it can fit for different tasks.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="padding bg-grey" id="project">
+		<div class="container">
+			<h2 class="section-title">My Projects</h2>
+			<p class="section-lead text-muted">The projects I have done cover data analysis, machine learning, computer vision, etc.</p>
+			<div class="section-body">
+				<div class="row col-spacing">
+					{projects.map((project) => <ProjectCard {...project} />)}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-overlay padding" id="aboutme" data-bg="/img/projects.jpeg">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-12 col-md-6">
+					<figure class="projects-picture"><img src="/img/youzhang.png" alt="Youzhang" /></figure>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="projects-details">
+						<div class="projects-badge">ABOUT ME</div>
+						<h2 class="projects-title">Archibald - A Machine Learning Enthusiast</h2>
+						<p>I am Yanzhao Qian. You can also call me Archibald. I was born and raised in China, and finished my bachelor's degree in applied mathematics there. In order to persuade the master's degree at U of C I relocated to Calgary in 2021.</p>
+						<p>My interest in machine learning drives me to study further in the field of statistics and to teach myself coding. I mainly focus on building a stronger artificial intelligence that can assists people, and analyzing historical datasets to make future predictions.</p>
+						<p>In my free time, I enjoy trying and learning new things, watching movies, playing video games and boxing. Also, I've just started snowboarding recently.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<ContactSection
+		title="Contact Me"
+		lead="Send me your inquiries, and I will reply as soon as possible"
+		text="You can send me something like a question or project. Please contact me if you think I will be a good fit for the position."
+		placeholders={{ name: "Name", email: "Email", subject: "Subject", message: "Message", button: "Send Message" }}
+	/>
+	<Footer />
+</BaseLayout>

@@ -1,12 +1,4 @@
 {
-	"compilerOptions": {
-		"target": "ES2017",
-		"module": "none",
-		"strict": true,
-		"noImplicitAny": true,
-		"outFile": "js/stisla.js",
-		"sourceMap": false,
-		"removeComments": false
-	},
-	"include": ["src/stisla.ts"]
+	"extends": "astro/tsconfigs/strict",
+	"exclude": ["src/stisla.ts", "js", "public/js", "dist"]
 }

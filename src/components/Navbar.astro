@@ -1,0 +1,48 @@
+---
+interface NavItem {
+	href: string;
+	label: string;
+}
+
+interface Props {
+	items: NavItem[];
+	languageHref: string;
+	languageLabel: string;
+}
+
+const { items, languageHref, languageLabel } = Astro.props;
+---
+
+<nav class="navbar navbar-expand-lg main-navbar">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">
+			<img src="/img/logo-light.png" alt="Logo" />
+		</a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-toggle="collapse"
+			data-target="#navbarNav"
+			aria-controls="navbarNav"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon">
+				<i class="ion-navicon"></i>
+			</span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="mr-auto"></div>
+			<ul class="navbar-nav">
+				{items.map((item, index) => (
+					<li class={`nav-item${index === 0 ? " active" : ""}`}>
+						<a class="nav-link smooth-link" href={item.href}>{item.label}</a>
+					</li>
+				))}
+			</ul>
+			<form class="form-inline">
+				<a href={languageHref} class="btn smooth-link align-middle btn-primary">{languageLabel}</a>
+			</form>
+		</div>
+	</div>
+</nav>

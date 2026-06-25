@@ -73,6 +73,11 @@ const selectors = {
 	smoothLink: ".smooth-link",
 } as const;
 
+const navbarClasses = {
+	dark: "bg-dark",
+	menuOpen: "menu-open",
+} as const;
+
 const articleTemplate = `
 <div class="article-read">
 	<div class="article-read-inner">
@@ -154,10 +159,12 @@ function setupAnchorScrolling(): void {
 function setupNavbarScrollState(): void {
 	$(window).scroll(function () {
 		const $window = $(this);
+		const navbar = document.querySelector(selectors.mainNavbar);
 		const heroHeight = $(".hero").outerHeight();
 		const navbarHeight = $(selectors.mainNavbar).outerHeight();
+		const isMenuOpen = navbar?.classList.contains(navbarClasses.menuOpen) ?? false;
 
-		if ($window.scrollTop() > heroHeight / 10) {
+		if ($window.scrollTop() > heroHeight / 10 || isMenuOpen) {
 			$(selectors.mainNavbar).addClass("bg-dark");
 		} else {
 			$(selectors.mainNavbar).removeClass("bg-dark");
@@ -194,7 +201,11 @@ function setupCollapseToggles(): void {
 		}
 
 		toggle.addEventListener("click", (event) => {
+			const navbar = toggle.closest(selectors.mainNavbar);
 			const isExpanded = targetElement.classList.toggle("show");
+
+			navbar?.classList.toggle(navbarClasses.menuOpen, isExpanded);
+			navbar?.classList.toggle(navbarClasses.dark, isExpanded || window.scrollY > window.innerHeight / 10);
 			toggle.setAttribute("aria-expanded", String(isExpanded));
 			event.preventDefault();
 		});

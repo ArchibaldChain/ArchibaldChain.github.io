@@ -1,0 +1,44 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	lang?: string;
+	includeTimeline?: boolean;
+	bodyClass?: string;
+	bodyStyle?: string;
+}
+
+const {
+	title,
+	description = "My personal website",
+	lang = "en",
+	includeTimeline = false,
+	bodyClass,
+	bodyStyle,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="author" content="Kodinger" />
+		<meta name="keyword" content="personal website, html5, css3, bootstrap4" />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<link rel="shortcut icon" href="/img/me_logo.png" />
+		<link rel="stylesheet" href="/ionicons/css/ionicons.min.css" />
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/sweetalert/dist/sweetalert.css" />
+		<link rel="stylesheet" href="/css/stisla.css" />
+		{includeTimeline && <link rel="stylesheet" href="/css/timeline.css" />}
+	</head>
+	<body class={bodyClass} style={bodyStyle}>
+		<slot />
+		<script is:inline src="/js/jquery.min.js"></script>
+		<script is:inline src="/js/jquery.easeScroll.js"></script>
+		<script is:inline src="/sweetalert/dist/sweetalert.min.js"></script>
+		<script is:inline src="/js/stisla.js"></script>
+	</body>
+</html>

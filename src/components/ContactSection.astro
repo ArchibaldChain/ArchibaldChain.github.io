@@ -1,0 +1,59 @@
+---
+interface Props {
+	title: string;
+	lead: string;
+	text: string;
+	placeholders: {
+		name: string;
+		email: string;
+		subject: string;
+		message: string;
+		button: string;
+	};
+}
+
+const { title, lead, text, placeholders } = Astro.props;
+---
+
+<section class="padding bg-grey" id="contact">
+	<div class="container">
+		<h2 class="section-title text-center">{title}</h2>
+		<p class="section-lead text-center text-muted">{lead}</p>
+		<div class="section-body">
+			<div class="row col-spacing">
+				<div class="col-12 col-md-5">
+					<p class="contact-text">{text}</p>
+					<ul class="contact-icon">
+						<li>
+							<i class="ion ion-ios-telephone"></i>
+							<div>+1 (825) 984 6233</div>
+						</li>
+						<li>
+							<i class="ion ion-ios-email"></i>
+							<div>archibaldchain@gmail.com</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-md-7">
+					<form class="contact row" id="contact-form">
+						<div class="form-group col-6">
+							<input type="text" class="form-control" placeholder={placeholders.name} name="name" required />
+						</div>
+						<div class="form-group col-6">
+							<input type="email" class="form-control" placeholder={placeholders.email} name="email" required />
+						</div>
+						<div class="form-group col-12">
+							<input type="text" class="form-control" placeholder={placeholders.subject} name="subject" required />
+						</div>
+						<div class="form-group col-12">
+							<textarea class="form-control" placeholder={placeholders.message} name="message" required></textarea>
+						</div>
+						<div class="form-group col-12 mt-2">
+							<button class="btn btn-primary">{placeholders.button}</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

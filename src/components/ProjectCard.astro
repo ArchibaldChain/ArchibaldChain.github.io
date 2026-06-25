@@ -1,0 +1,33 @@
+---
+interface Props {
+	image: string;
+	date: string;
+	title: string;
+	description: string;
+	href?: string;
+	readMoreLabel?: string;
+}
+
+const { image, date, title, description, href, readMoreLabel = "Read More" } = Astro.props;
+---
+
+<div class="col-12 col-md-6 col-lg-4">
+	<article class="card">
+		<img class="card-img-top" src={image} alt="Article Image" />
+		<div class="card-body">
+			<div class="card-subtitle mb-2 text-muted">{date}</div>
+			<h4 class="card-title">
+				{href ? <a href={href}>{title}</a> : title}
+			</h4>
+			<p class="card-text">{description}</p>
+			<div class="text-right">
+				{href && (
+					<a href={href} class="card-more">
+						{readMoreLabel}
+						<i class="ion-ios-arrow-right"></i>
+					</a>
+				)}
+			</div>
+		</div>
+	</article>
+</div>

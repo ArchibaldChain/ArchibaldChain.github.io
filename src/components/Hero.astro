@@ -1,0 +1,35 @@
+---
+interface Props {
+	lead: string;
+	headingPrefix: string;
+	highlight: string;
+	headingSuffix: string;
+	ctaLabel: string;
+}
+
+const { lead, headingPrefix, highlight, headingSuffix, ctaLabel } = Astro.props;
+---
+
+<section class="hero bg-overlay" id="hero" data-bg="/img/hero.jpeg">
+	<div class="text py-5">
+		<p class="lead">{lead}</p>
+		<h1>{headingPrefix}<span class="bold">{highlight}</span>{headingSuffix}</h1>
+		<div class="cta">
+			<a href="#aboutme" class="btn btn-primary smooth-link">{ctaLabel}</a>
+			<div class="link">
+				<a href="https://opensource.org/licenses/MIT" target="_blank">Under the MIT License</a>
+			</div>
+		</div>
+		<div class="other-link">
+			<a class="icon" href="https://www.linkedin.com/in/yanzhao-qian/" target="_blank">
+				<i class="ion-social-linkedin"></i>
+			</a>
+			<a class="icon" href="https://github.com/ArchibaldChain" target="_blank">
+				<i class="ion-social-github"></i>
+			</a>
+			<a class="icon" href="/Yanzhao Qian Data Scientist.pdf" target="_blank">
+				<i class="ion-document-text"></i>
+			</a>
+		</div>
+	</div>
+</section>

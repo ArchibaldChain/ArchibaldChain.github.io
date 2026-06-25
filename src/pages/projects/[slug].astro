@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+	return projects.map((project) => ({
+		params: { slug: project.id.replace(/\.md$/, "") },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const frontmatter = project.data;
+---
+
+<BaseLayout title={frontmatter.title} bodyClass="vsc-initialized" bodyStyle="overflow: hidden;">
+	<div class="article-read" style="display: block;">
+		<div class="article-read-inner">
+			<div class="article-back">
+				<a class="btn btn-outline-primary" href={frontmatter.backHref ?? "/#project"}>
+					<i class="ion ion-chevron-left"></i>
+					Back
+				</a>
+			</div>
+			<h1 class="article-title">{frontmatter.title}</h1>
+			<div class="meta">
+				{frontmatter.github && (
+					<a class="icon" href={frontmatter.github} target="_blank">
+						<i class="ion-social-github"></i>
+					</a>
+				)}
+				{frontmatter.document && (
+					<a class="icon" href={frontmatter.document} target="_blank">
+						<i class="ion-document-text"></i>
+					</a>
+				)}
+			</div>
+			<div class="article-metas">
+				<div class="meta">{frontmatter.date}</div>
+				{frontmatter.tags.map((tag: string) => <div class="meta">{tag}</div>)}
+			</div>
+			{frontmatter.image && (
+				<figure class="article-picture"><img src={frontmatter.image} alt={frontmatter.title} /></figure>
+			)}
+			<div class="article-content">
+				<Content />
+			</div>
+		</div>
+	</div>
+</BaseLayout>
