@@ -2,6 +2,7 @@
     --timeline-line: #000;
     --timeline-card: rgba(235, 234, 234, 0.5);
     --timeline-card-shadow: rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
     display: flex;
     gap: 0;
     margin: 0 auto;
@@ -13,6 +14,7 @@
 }
 
 .timeline__item {
+    box-sizing: border-box;
     display: grid;
     flex: 0 0 320px;
     grid-template-rows: auto 32px 1fr;
@@ -84,8 +86,10 @@
 
 .timeline__component--bg {
     background: var(--timeline-card);
+    box-sizing: border-box;
     box-shadow: 0 0 5px var(--timeline-card-shadow);
     height: calc(100% - 18px);
+    overflow: hidden;
     padding: 1.5em;
 }
 
@@ -108,10 +112,14 @@
     width: 42px;
 }
 
+.timeline__title img,
 .timeline__icon img {
-    max-height: 40px;
-    max-width: 42px;
+    display: block;
+    height: auto !important;
+    max-height: 42px !important;
+    max-width: 42px !important;
     object-fit: contain;
+    width: auto !important;
 }
 
 .timeline__icon i {
@@ -148,6 +156,6 @@
     }
 
     .timeline__item {
-        flex-basis: 84vw;
+        flex-basis: min(84vw, 320px);
     }
 }
