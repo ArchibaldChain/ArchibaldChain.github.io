@@ -413,9 +413,20 @@ section.callout h3 {
 	margin: 0;
 }
 
+.other-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+}
+
 .other-link .icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
 	font-size: 30px;
-	flex: 1;
 	color: rgb(252, 249, 249);
 }
 
