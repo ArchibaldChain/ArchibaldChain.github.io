@@ -24,6 +24,11 @@ export type ProjectPreview = {
 	title: string;
 	description: string;
 	href?: string;
+	links?: Array<{
+		type: "github" | "document" | "external";
+		href: string;
+		label: string;
+	}>;
 };
 
 export type HomeContent = {
@@ -52,6 +57,7 @@ export type HomeContent = {
 	projectsSection: {
 		title: string;
 		lead: string;
+		readMoreLabel: string;
 		items: ProjectPreview[];
 	};
 	about: {

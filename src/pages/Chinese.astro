@@ -91,7 +91,7 @@ const articles = (await getCollection("articles"))
 			<p class="section-lead text-muted">{homeContent.projectsSection.lead}</p>
 			<div class="section-body">
 				<div class="row col-spacing">
-					{homeContent.projectsSection.items.map((project) => <ProjectCard {...project} />)}
+					{homeContent.projectsSection.items.map((project) => <ProjectCard {...project} readMoreLabel={homeContent.projectsSection.readMoreLabel} />)}
 				</div>
 			</div>
 		</div>

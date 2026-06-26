@@ -80,6 +80,7 @@ export const homeContent: HomeContent = {
 	projectsSection: {
 		title: "我的项目",
 		lead: "我做过的项目涵盖与数据分析，机器学习，计算机视觉等。",
+		readMoreLabel: "阅读全文",
 		items: [
 			{
 				image: "/projects/CVc/bioinformatics.jpg",
@@ -88,6 +89,13 @@ export const homeContent: HomeContent = {
 				description:
 					"In Genomics Dataset, every indivdual has very similar gene except a few variants which causes machine learning methods are easily over-fitting. Therefore CV which is used for estimating test error is underestimated.",
 				href: "/projects/project-CVc.html",
+				links: [
+					{
+						type: "github",
+						href: "https://github.com/ArchibaldChain/CVc_in_bio_informatics",
+						label: "查看 GitHub 仓库",
+					},
+				],
 			},
 			{
 				image: "/projects/Internet Speed/internet.jpg",
@@ -95,7 +103,18 @@ export const homeContent: HomeContent = {
 				title: "Statistical Analysis of Ookla Internet Speeds for Rural/Urban Canadian Communities",
 				description:
 					"We visualized, processed, and analyzed the Internet Speed dataset provided by Ookla company. We used logistic regression to predict future internet speed situation and gave some suggestions according to it.",
-				href: "/projects/project-InternetSpeed.html",
+				links: [
+					{
+						type: "github",
+						href: "https://github.com/HH197/Case-Study-Competition",
+						label: "查看 GitHub 仓库",
+					},
+					{
+						type: "document",
+						href: "/projects/Internet Speed/Interenet Speedposter.pdf",
+						label: "打开项目海报 PDF",
+					},
+				],
 			},
 		],
 	},

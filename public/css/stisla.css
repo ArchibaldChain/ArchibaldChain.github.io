@@ -538,6 +538,34 @@ article.card .card-more i {
 	margin-left: 5px;
 }
 
+article.card .card-actions {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	justify-content: flex-end;
+	margin-top: 10px;
+}
+
+article.card .card-actions .card-more {
+	margin-top: 0;
+}
+
+article.card .card-action-icon {
+	align-items: center;
+	color: #000;
+	display: inline-flex;
+	font-size: 24px;
+	height: 32px;
+	justify-content: center;
+	text-decoration: none;
+	width: 32px;
+}
+
+article.card .card-action-icon:hover {
+	opacity: .7;
+}
+
 /*subscribe*/
 .subscribe {
 	position: relative;

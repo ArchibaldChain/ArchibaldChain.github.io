@@ -5,10 +5,21 @@ interface Props {
 	title: string;
 	description: string;
 	href?: string;
+	links?: Array<{
+		type: "github" | "document" | "external";
+		href: string;
+		label: string;
+	}>;
 	readMoreLabel?: string;
 }
 
-const { image, date, title, description, href, readMoreLabel = "Read More" } = Astro.props;
+const { image, date, title, description, href, links = [], readMoreLabel = "Read More" } = Astro.props;
+
+const iconByType = {
+	github: "ion-social-github",
+	document: "ion-document-text",
+	external: "ion-android-open",
+};
 ---
 
 <div class="col-12 col-md-6 col-lg-4">
@@ -20,7 +31,12 @@ const { image, date, title, description, href, readMoreLabel = "Read More" } = A
 				{href ? <a href={href}>{title}</a> : title}
 			</h4>
 			<p class="card-text">{description}</p>
-			<div class="text-right">
+			<div class="card-actions">
+				{links.map((link) => (
+					<a class="card-action-icon" href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label} title={link.label}>
+						<i class={iconByType[link.type]}></i>
+					</a>
+				))}
 				{href && (
 					<a href={href} class="card-more">
 						{readMoreLabel}
