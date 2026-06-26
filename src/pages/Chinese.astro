@@ -5,14 +5,24 @@ import Hero from "../components/Hero.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
 
 const navItems = [
 	{ href: "#hero", label: "主页" },
 	{ href: "#Experience", label: "经历" },
+	{ href: "#articles", label: "文章" },
 	{ href: "#project", label: "项目" },
 	{ href: "#aboutme", label: "关于我" },
 	{ href: "#contact", label: "联系我" },
 ];
+
+const articles = (await getCollection("articles"))
+	.map((article) => ({
+		slug: article.id.replace(/\.md$/, ""),
+		...article.data,
+	}))
+	.sort((a, b) => String(b.date).localeCompare(String(a.date)))
+	.slice(0, 3);
 
 const projects = [
 	{
@@ -51,20 +61,89 @@ const projects = [
 				<div class="timeline__date">2017.09 - 2021.06</div>
 				<div class="timeline__middle"><div class="timeline__point"></div></div>
 				<div class="timeline__component timeline__component--bg">
-					<h2 class="timeline__title"><img src="/img/sustech.png" height="35" alt="logo" /> 南方科技大学</h2>
-					<p class="timeline__subtitle"><i>理学学士</i> 数学与应用数学</p>
+					<h2 class="timeline__title"><span class="timeline__icon" aria-hidden="true"><img src="/img/sustech.png" alt="南方科技大学 logo" /></span> 南方科技大学</h2>
+					<p class="timeline__subtitle">数学与应用数学</p>
 					<p class="timeline__paragraph">我对理解机器学习的兴趣驱使我学习应用数学。这让我可以进一步研究算法。在学习数学的过程中，我学会了如何进行严格的证明，并且了解了现代数学是如何建构起来的。</p>
 				</div>
 			</article>
 			<article class="timeline__item">
-				<div class="timeline__date">2021.09 - 至今</div>
+				<div class="timeline__date">2021.09 - 2023.06</div>
 				<div class="timeline__middle"><div class="timeline__point"></div></div>
 				<div class="timeline__component timeline__component--bg">
-					<h2 class="timeline__title"><img src="/img/UofCCoat.svg.png" height="35" alt="logo" /> 卡尔加里大学</h2>
-					<p class="timeline__subtitle"><i>理学硕士</i> 应用统计</p>
+					<h2 class="timeline__title"><span class="timeline__icon" aria-hidden="true"><img src="/img/UofCCoat.svg.png" alt="卡尔加里大学 logo" /></span> 卡尔加里大学</h2>
+					<p class="timeline__subtitle">统计学硕士与机器学习</p>
 					<p class="timeline__paragraph">在这个阶段，我学习了广义线性模型、计算统计、动手深度学习等，为我的数据分析打下了坚实的基础。我的研究重点是生物信息学中的交叉验证问题。</p>
 				</div>
 			</article>
+			<article class="timeline__item">
+				<div class="timeline__date">2023</div>
+				<div class="timeline__middle"><div class="timeline__point"></div></div>
+				<div class="timeline__component timeline__component--bg">
+					<h2 class="timeline__title"><span class="timeline__icon" aria-hidden="true"><img src="/img/tech-start-black.png" alt="Tech Start logo" /></span> Tech Start UCalgary</h2>
+					<p class="timeline__subtitle">机器学习开发者</p>
+				</div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__date">2023</div>
+				<div class="timeline__middle"><div class="timeline__point"></div></div>
+				<div class="timeline__component timeline__component--bg">
+					<h2 class="timeline__title"><span class="timeline__icon timeline__icon--wide" aria-hidden="true"><img src="/img/cenozon-logo.png" alt="Cenozon logo" /></span> Cenozon Inc.</h2>
+					<p class="timeline__subtitle">数据科学家</p>
+				</div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__date">2023 - 2024</div>
+				<div class="timeline__middle"><div class="timeline__point"></div></div>
+				<div class="timeline__component timeline__component--bg">
+					<h2 class="timeline__title"><span class="timeline__icon timeline__icon--wide" aria-hidden="true"><img src="/img/intact-logo.svg" alt="Intact Insurance logo" /></span> Intact Financial Corporation</h2>
+					<p class="timeline__subtitle">数据科学家</p>
+				</div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__date">2024 - 至今</div>
+				<div class="timeline__middle"><div class="timeline__point"></div></div>
+				<div class="timeline__component timeline__component--bg">
+					<h2 class="timeline__title"><span class="timeline__icon" aria-hidden="true"><img src="/img/bba-logo.svg" alt="BBA logo" /></span> BBA Engineering</h2>
+					<p class="timeline__subtitle">电力分析师</p>
+				</div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__date">Today</div>
+				<div class="timeline__middle"><div class="timeline__point"></div></div>
+				<div class="timeline__component timeline__component--bg">
+					<h2 class="timeline__title"><span class="timeline__icon" aria-hidden="true"><i class="ion ion-network"></i></span> 构建智能系统</h2>
+					<p class="timeline__subtitle">Vibe Developer</p>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="padding container" id="articles">
+		<h2 class="section-title">文章</h2>
+		<p class="section-lead text-muted">记录我正在学习、思考和构建的内容。</p>
+		<div class="section-body">
+			<div class="row col-spacing">
+				{articles.map((article) => (
+					<div class="col-12 col-md-6 col-lg-4">
+						<article class="card">
+							<div class="card-body">
+								<div class="card-subtitle mb-2 text-muted">{article.date}</div>
+								<h4 class="card-title"><a href={`/articles/${article.slug}.html`}>{article.title}</a></h4>
+								<p class="card-text">{article.description}</p>
+								<div class="text-right">
+									<a href={`/articles/${article.slug}.html`} class="card-more">
+										阅读全文
+										<i class="ion-ios-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+						</article>
+					</div>
+				))}
+			</div>
+			<div class="text-center mt-4">
+				<a class="btn btn-primary" href="/articles.html">查看全部文章</a>
+			</div>
 		</div>
 	</section>
 

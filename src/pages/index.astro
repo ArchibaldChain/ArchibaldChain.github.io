@@ -5,75 +5,79 @@ import Hero from "../components/Hero.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
 
 const navItems = [
 	{ href: "#hero", label: "Home" },
 	{ href: "#Experience", label: "Experience" },
+	{ href: "#articles", label: "Articles" },
 	{ href: "#project", label: "Projects" },
 	{ href: "#aboutme", label: "About Me" },
 	{ href: "#contact", label: "Contact Me" },
 ];
 
+const articles = (await getCollection("articles"))
+	.map((article) => ({
+		slug: article.id.replace(/\.md$/, ""),
+		...article.data,
+	}))
+	.sort((a, b) => String(b.date).localeCompare(String(a.date)))
+	.slice(0, 3);
+
 const journey = [
 	{
 		date: "2017-2021",
-		stage: "Mathematics & Discovering AI",
+		stage: "Applied Mathematics",
 		organization: "Southern University of Science and Technology (China)",
 		icon: { type: "image", src: "/img/sustech.png", alt: "Southern University of Science and Technology logo" },
 		description:
 			"My journey began with a degree in Applied Mathematics, where I developed a strong foundation in mathematical modeling, optimization, and statistics. During this time, I became fascinated by machine learning and started teaching myself programming, realizing that mathematics could be used to build intelligent systems capable of solving real-world problems.",
-		learned: "Mathematical modeling, optimization, statistics, programming, and machine learning fundamentals.",
 	},
 	{
 		date: "2021-2023",
-		stage: "Statistics & Machine Learning Research",
+		stage: "MSc Statistics & Machine Learning",
 		organization: "University of Calgary",
 		icon: { type: "image", src: "/img/UofCCoat.svg.png", alt: "University of Calgary logo" },
 		description:
 			"I moved to Canada in 2021 to pursue an MSc in Statistics at the University of Calgary. My research focused on improving cross-validation methods for machine learning models in genomic prediction, combining statistical theory with large-scale computation. Alongside my thesis, I also worked on reinforcement learning for robotic manipulation and participated in academic research and presentations.",
-		learned: "Research, statistical modeling, machine learning, and scientific thinking.",
 	},
 	{
 		date: "2023",
-		stage: "Building AI Through Student Innovation",
+		stage: "ML Developer",
 		organization: "Tech Start UCalgary",
 		icon: { type: "image", src: "/img/tech-start-black.png", alt: "Tech Start logo" },
 		description:
 			"Before entering industry, I joined Tech Start to collaborate with multidisciplinary teams on early-stage technology projects. It was my first experience building software products in a fast-paced environment and working closely with people from different technical backgrounds.",
-		learned: "Product thinking, rapid prototyping, teamwork, and startup culture.",
 	},
 	{
 		date: "2023",
-		stage: "Industrial Data Science",
+		stage: "Data Scientist",
 		organization: "Cenozon Inc.",
-		icon: { type: "ion", name: "ion-stats-bars" },
+		icon: { type: "image", src: "/img/cenozon-logo.png", alt: "Cenozon logo", wide: true },
 		description:
 			"At Cenozon, I worked with industrial pipeline data, developing machine learning models for corrosion prediction and risk analysis. This was my first opportunity to apply data science to critical infrastructure and large engineering datasets.",
-		learned: "Industrial analytics, predictive modeling, data engineering, and working with domain experts.",
 	},
 	{
 		date: "2023-2024",
-		stage: "AI & Machine Learning in Production",
+		stage: "Data Scientist",
 		organization: "Intact Financial Corporation",
-		icon: { type: "ion", name: "ion-cloud" },
+		icon: { type: "image", src: "/img/intact-logo.svg", alt: "Intact Insurance logo", wide: true },
 		description:
 			"At Intact, I developed NLP and generative AI solutions using large-scale customer service data. I built machine learning pipelines, experimented with LLMs, and collaborated with engineering teams to bring models closer to production environments.",
-		learned: "Production machine learning, NLP, cloud platforms, MLOps, and software engineering.",
 	},
 	{
 		date: "2024-Present",
-		stage: "Energy Analytics & Intelligent Infrastructure",
+		stage: "Power Analytics",
 		organization: "BBA Engineering",
-		icon: { type: "ion", name: "ion-flash" },
+		icon: { type: "image", src: "/img/bba-logo.svg", alt: "BBA logo" },
 		description:
 			"My work has evolved toward energy analytics, where I apply machine learning, forecasting, optimization, and software engineering to power system challenges. My projects include electricity load forecasting, battery energy storage optimization, transmission asset risk analysis, OT/SCADA cybersecurity automation, and decision-support tools for electric utilities.",
-		learned: "Forecasting, optimization, power systems, cybersecurity, and decision support for critical infrastructure.",
 	},
 	{
 		date: "Today",
-		stage: "Building Intelligent Systems",
-		organization: "Independent exploration",
-		icon: { type: "ion", name: "ion-rocket" },
+		stage: "Vibe Developer",
+		organization: "Building Intelligent Systems",
+		icon: { type: "ion", name: "ion-network" },
 		description:
 			"Today, I'm interested in applying AI, optimization, and data science to complex real-world systems. Whether in energy, finance, or other data-intensive industries, I enjoy building software and intelligent decision-support tools that help people solve challenging problems. Outside of work, I continue exploring AI-assisted development, experimenting with new technologies, and building software products that turn ideas into reality.",
 	},
@@ -126,22 +130,50 @@ const projects = [
 						<div class="timeline__middle"><div class="timeline__point"></div></div>
 						<div class="timeline__component timeline__component--bg">
 							<h2 class="timeline__title">
-								<span class="timeline__icon" aria-hidden="true">
+								<span class={`timeline__icon${item.icon.type === "image" && item.icon.wide ? " timeline__icon--wide" : ""}`} aria-hidden="true">
 									{item.icon.type === "image" ? (
 										<img src={item.icon.src} alt={item.icon.alt} width="42" />
 									) : (
 										<i class={item.icon.name}></i>
 									)}
 								</span>
-								<span>{item.stage}</span>
+								<span>{item.organization}</span>
 							</h2>
-							<p class="timeline__subtitle">{item.organization}</p>
+							<p class="timeline__subtitle">{item.stage}</p>
 							<p class="timeline__paragraph">{item.description}</p>
-							{item.learned && <p class="timeline__learned"><strong>What I learned:</strong> {item.learned}</p>}
 						</div>
 					</article>
 				))
 			}
+		</div>
+	</section>
+
+	<section class="padding container" id="articles">
+		<h2 class="section-title">Articles</h2>
+		<p class="section-lead text-muted">Notes, essays, and updates from what I am learning and building.</p>
+		<div class="section-body">
+			<div class="row col-spacing">
+				{articles.map((article) => (
+					<div class="col-12 col-md-6 col-lg-4">
+						<article class="card">
+							<div class="card-body">
+								<div class="card-subtitle mb-2 text-muted">{article.date}</div>
+								<h4 class="card-title"><a href={`/articles/${article.slug}.html`}>{article.title}</a></h4>
+								<p class="card-text">{article.description}</p>
+								<div class="text-right">
+									<a href={`/articles/${article.slug}.html`} class="card-more">
+										Read More
+										<i class="ion-ios-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+						</article>
+					</div>
+				))}
+			</div>
+			<div class="text-center mt-4">
+				<a class="btn btn-primary" href="/articles.html">View All Articles</a>
+			</div>
 		</div>
 	</section>
 
