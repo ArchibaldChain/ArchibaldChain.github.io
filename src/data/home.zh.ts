@@ -95,6 +95,11 @@ export const homeContent: HomeContent = {
 						href: "https://github.com/ArchibaldChain/CVc_in_bio_informatics",
 						label: "查看 GitHub 仓库",
 					},
+					{
+						type: "external",
+						href: "https://www.tandfonline.com/doi/full/10.1080/02664763.2026.2646570",
+						label: "查看发表文章",
+					},
 				],
 			},
 			{

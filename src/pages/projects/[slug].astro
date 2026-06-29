@@ -36,6 +36,11 @@ const frontmatter = project.data;
 						<i class="ion-document-text"></i>
 					</a>
 				)}
+				{frontmatter.publication && (
+					<a class="icon" href={frontmatter.publication} target="_blank">
+						<i class="ion-android-open"></i>
+					</a>
+				)}
 			</div>
 			<div class="article-metas">
 				<div class="meta">{frontmatter.date}</div>
