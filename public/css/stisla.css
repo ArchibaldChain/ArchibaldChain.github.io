@@ -417,7 +417,7 @@ section.callout h3 {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 8px;
+	gap: 5px;
 }
 
 .other-link .icon {
@@ -456,8 +456,15 @@ section.callout h3 {
 }
 
 .meta .icon {
+	display: inline-flex;
 	font-size: 20px;
-	color: #000
+	color: #000;
+	margin-right: 12px;
+	text-decoration: none;
+}
+
+.meta .icon:last-child {
+	margin-right: 0;
 }
 
 .list-item .desc h2 {
