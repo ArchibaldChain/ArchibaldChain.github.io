@@ -4,7 +4,7 @@ date: "May 2022"
 tags:
   - Data Analysis
   - Logistic Regression
-image: "/projects/Internet Speed/internet.jpg"
+image: "/projects/Internet Speed/canada-internet-cover.png"
 github: "https://github.com/HH197/Case-Study-Competition"
 document: "/projects/Internet Speed/Interenet Speedposter.pdf"
 backHref: "/#project"

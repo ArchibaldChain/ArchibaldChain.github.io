@@ -83,8 +83,8 @@ export const homeContent: HomeContent = {
 		readMoreLabel: "阅读全文",
 		items: [
 			{
-				image: "/projects/CVc/bioinformatics.jpg",
-				date: "Oct. 2021 - Present",
+				image: "/projects/CVc/cvc-cover.png",
+				date: "2023-09",
 				title: "Cross-validation Correction For Machine Learing in Genomics Datasets",
 				description:
 					"In Genomics Dataset, every indivdual has very similar gene except a few variants which causes machine learning methods are easily over-fitting. Therefore CV which is used for estimating test error is underestimated.",
@@ -103,7 +103,7 @@ export const homeContent: HomeContent = {
 				],
 			},
 			{
-				image: "/projects/Internet Speed/internet.jpg",
+				image: "/projects/Internet Speed/canada-internet-cover.png",
 				date: "May 2022",
 				title: "Statistical Analysis of Ookla Internet Speeds for Rural/Urban Canadian Communities",
 				description:
