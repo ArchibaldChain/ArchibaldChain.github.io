@@ -125,12 +125,12 @@ export const homeContent: HomeContent = {
 	},
 	about: {
 		badge: "关于我",
-		title: "阿奇 - 机器学习爱好者",
+		title: "Yanzhao Qian（Archibald）",
 		imageAlt: "Youzhang",
 		paragraphs: [
-			"I am Yanzhao Qian. You can also call me Archibald. I was born and raised in China, and finished my bachelor's degree in applied mathematics there.",
-			"My interest in machine learning drives me to study further in the field of statistics and to teach myself coding.",
-			"In my free time, I enjoy trying and learning new things, watching movies, playing video games and boxing. Also, I've just started snowboarding recently.",
+			"你好，我是 Yanzhao Qian（Archibald）。我希望通过软件、数据与人工智能，让复杂系统变得更容易理解、更容易分析，也更容易做出决策。",
+			"我主要关注人工智能、能源系统与软件工程的交叉领域。我对复杂系统充满兴趣，也乐于利用数据分析、预测模型和软件工程，将复杂的问题转化为更直观、更高效的工具。",
+			"目前，我的工作和研究主要围绕电力系统、能源市场、预测与优化、AI Agent，以及个人金融分析展开。这个网站记录了我的项目、研究和实验，也记录着我不断学习和构建的过程。",
 		],
 	},
 	contact: {

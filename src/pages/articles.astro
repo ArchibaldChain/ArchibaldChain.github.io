@@ -22,10 +22,16 @@ const navItems = [
 ---
 
 <BaseLayout title="Articles">
-	<Navbar items={navItems} languageHref="/Chinese.html" languageLabel="中文" />
+	<Navbar items={navItems} languageHref="/Chinese.html" languageLabel="中文" className="bg-dark" brandHref="/#hero" />
 	<section class="padding bg-grey">
 		<div class="container">
-			<h2 class="section-title">Articles</h2>
+			<div class="article-list-heading">
+				<h2 class="section-title">Articles</h2>
+				<a class="btn btn-outline-primary article-list-back" href="/#articles">
+					<i class="ion ion-chevron-left"></i>
+					Back
+				</a>
+			</div>
 			<div class="section-body">
 				<div class="row col-spacing">
 					{articles.map((article) => (

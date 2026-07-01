@@ -8,14 +8,16 @@ interface Props {
 	items: NavItem[];
 	languageHref: string;
 	languageLabel: string;
+	className?: string;
+	brandHref?: string;
 }
 
-const { items, languageHref, languageLabel } = Astro.props;
+const { items, languageHref, languageLabel, className = "", brandHref = "#" } = Astro.props;
 ---
 
-<nav class="navbar navbar-expand-lg main-navbar">
+<nav class={`navbar navbar-expand-lg main-navbar ${className}`}>
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href={brandHref}>
 			<img src="/img/logo-light.png" alt="Logo" />
 		</a>
 		<button

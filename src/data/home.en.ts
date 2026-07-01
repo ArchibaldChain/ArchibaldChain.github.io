@@ -134,12 +134,12 @@ export const homeContent: HomeContent = {
 	},
 	about: {
 		badge: "ABOUT ME",
-		title: "Archibald - A Machine Learning Enthusiast",
+		title: "Yanzhao Qian (Archibald)",
 		imageAlt: "Youzhang",
 		paragraphs: [
-			"I am Yanzhao Qian. You can also call me Archibald. I was born and raised in China, and finished my bachelor's degree in applied mathematics there. In order to persuade the master's degree at U of C I relocated to Calgary in 2021.",
-			"My interest in machine learning drives me to study further in the field of statistics and to teach myself coding. I mainly focus on building a stronger artificial intelligence that can assists people, and analyzing historical datasets to make future predictions.",
-			"In my free time, I enjoy trying and learning new things, watching movies, playing video games and boxing. Also, I've just started snowboarding recently.",
+			"Hi, I'm Yanzhao Qian, also known as Archibald. My work sits at the intersection of AI, energy systems, and software engineering. I'm fascinated by complex systems: how they behave, how they can be modeled, and how intelligent software can make them easier to understand.",
+			"My current interests include power systems, energy market analytics, forecasting, optimization, AI agents, and financial analytics. I enjoy transforming research, engineering workflows, and data into software products that solve practical problems.",
+			"This website is a collection of my projects, technical articles, and experiments as I continue exploring AI, energy, and financial systems.",
 		],
 	},
 	contact: {
