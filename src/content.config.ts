@@ -23,6 +23,8 @@ const articles = defineCollection({
 		title: z.string(),
 		date: z.string(),
 		description: z.string(),
+		zhTitle: z.string().optional(),
+		zhDescription: z.string().optional(),
 		lang: z.string().default("en"),
 	}),
 });

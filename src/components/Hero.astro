@@ -5,9 +5,10 @@ interface Props {
 	highlight: string;
 	headingSuffix: string;
 	ctaLabel: string;
+	licenseLabel: string;
 }
 
-const { lead, headingPrefix, highlight, headingSuffix, ctaLabel } = Astro.props;
+const { lead, headingPrefix, highlight, headingSuffix, ctaLabel, licenseLabel } = Astro.props;
 ---
 
 <section class="hero bg-overlay" id="hero" data-bg="/img/hero.jpeg">
@@ -17,7 +18,7 @@ const { lead, headingPrefix, highlight, headingSuffix, ctaLabel } = Astro.props;
 		<div class="cta">
 			<a href="#aboutme" class="btn btn-primary smooth-link">{ctaLabel}</a>
 			<div class="link">
-				<a href="https://opensource.org/licenses/MIT" target="_blank">Under the MIT License</a>
+				<a href="https://opensource.org/licenses/MIT" target="_blank">{licenseLabel}</a>
 			</div>
 		</div>
 		<div class="other-link">

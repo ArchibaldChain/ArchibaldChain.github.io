@@ -43,6 +43,7 @@ export type HomeContent = {
 		highlight: string;
 		headingSuffix: string;
 		ctaLabel: string;
+		licenseLabel: string;
 	};
 	journeySection: {
 		title: string;

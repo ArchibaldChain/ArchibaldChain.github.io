@@ -18,6 +18,7 @@ export const homeContent: HomeContent = {
 		highlight: "Archibald",
 		headingSuffix: ". Welcome to my website.",
 		ctaLabel: "About Me",
+		licenseLabel: "Under the MIT License",
 	},
 	journeySection: {
 		title: "My Journey",
@@ -134,10 +135,10 @@ export const homeContent: HomeContent = {
 	},
 	about: {
 		badge: "ABOUT ME",
-		title: "Yanzhao Qian (Archibald)",
-		imageAlt: "Youzhang",
+		title: "Archibald (Yanzhao Qian)",
+		imageAlt: "Archibald Qian",
 		paragraphs: [
-			"Hi, I'm Yanzhao Qian, also known as Archibald. My work sits at the intersection of AI, energy systems, and software engineering. I'm fascinated by complex systems: how they behave, how they can be modeled, and how intelligent software can make them easier to understand.",
+			"Hi, I'm Yanzhao Qian, also known as Archie (Archibald). My work sits at the intersection of AI, energy systems, and software engineering. I'm fascinated by complex systems: how they behave, how they can be modeled, and how intelligent software can make them easier to understand.",
 			"My current interests include power systems, energy market analytics, forecasting, optimization, AI agents, and financial analytics. I enjoy transforming research, engineering workflows, and data into software products that solve practical problems.",
 			"This website is a collection of my projects, technical articles, and experiments as I continue exploring AI, energy, and financial systems.",
 		],
@@ -145,7 +146,7 @@ export const homeContent: HomeContent = {
 	contact: {
 		title: "Contact Me",
 		lead: "Send me your inquiries, and I will reply as soon as possible",
-		text: "You can send me something like a question or project. Please contact me if you think I will be a good fit for the position.",
+		text: "Feel free to reach out about projects, research ideas, or opportunities where my background in AI, analytics, and software engineering could be useful.",
 		placeholders: { name: "Name", email: "Email", subject: "Subject", message: "Message", button: "Send Message" },
 	},
 };
