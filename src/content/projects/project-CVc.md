@@ -1,5 +1,9 @@
 ---
 title: "Bias-Corrected Cross-Validation for Genomic Prediction"
+cardTitle: "Cross-validation Correction For Machine Learning in Genomic Datasets"
+zhTitle: "基因组数据中的交叉验证偏差校正"
+description: "In genomic datasets, individuals share large amounts of correlated genetic information, which can make machine learning models overfit and cause standard cross-validation to underestimate test error."
+zhDescription: "在基因组数据中，个体之间存在大量相似的遗传信息和相关结构，这会让机器学习模型更容易出现过拟合，也会导致用于估计测试误差的交叉验证结果偏乐观。"
 date: "2023-09"
 tags:
   - Genomics
@@ -9,6 +13,8 @@ image: "/projects/CVc/cvc-cover.png"
 github: "https://github.com/theLongLab/CVc_in_bioinformatics"
 publication: "https://doi.org/10.1080/02664763.2026.2646570"
 backHref: "/#project"
+featured: true
+order: 1
 ---
 
 **Journal paper:** [The bias of using cross-validation in genomic predictions and its correction](https://doi.org/10.1080/02664763.2026.2646570)  

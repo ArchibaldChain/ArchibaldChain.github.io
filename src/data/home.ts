@@ -18,19 +18,6 @@ export type TimelineItem = {
 	description?: string;
 };
 
-export type ProjectPreview = {
-	image: string;
-	date: string;
-	title: string;
-	description: string;
-	href?: string;
-	links?: Array<{
-		type: "github" | "document" | "external";
-		href: string;
-		label: string;
-	}>;
-};
-
 export type HomeContent = {
 	title: string;
 	lang?: string;
@@ -59,7 +46,6 @@ export type HomeContent = {
 		title: string;
 		lead: string;
 		readMoreLabel: string;
-		items: ProjectPreview[];
 	};
 	about: {
 		badge: string;

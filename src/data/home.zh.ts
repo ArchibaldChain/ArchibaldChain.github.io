@@ -92,47 +92,6 @@ export const homeContent: HomeContent = {
 		title: "我的项目",
 		lead: "我的项目涵盖数据分析、机器学习、统计建模和软件开发等方向。",
 		readMoreLabel: "阅读全文",
-		items: [
-			{
-				image: "/projects/CVc/cvc-cover.png",
-				date: "2023-09",
-				title: "基因组数据中的交叉验证偏差校正",
-				description:
-					"在基因组数据中，个体之间存在大量相似的遗传信息和相关结构，这会让机器学习模型更容易出现过拟合，也会导致用于估计测试误差的交叉验证结果偏乐观。",
-				href: "/projects/project-CVc.html",
-				links: [
-					{
-						type: "github",
-						href: "https://github.com/ArchibaldChain/CVc_in_bio_informatics",
-						label: "查看 GitHub 仓库",
-					},
-					{
-						type: "external",
-						href: "https://www.tandfonline.com/doi/full/10.1080/02664763.2026.2646570",
-						label: "查看发表文章",
-					},
-				],
-			},
-			{
-				image: "/projects/Internet Speed/canada-internet-cover.png",
-				date: "2022 年 5 月",
-				title: "加拿大城乡社区 Ookla 网速数据统计分析",
-				description:
-					"我们对 Ookla 提供的互联网速度数据进行了可视化、清洗和统计分析，并使用逻辑回归预测未来网速状况，基于结果提出相关建议。",
-				links: [
-					{
-						type: "github",
-						href: "https://github.com/HH197/Case-Study-Competition",
-						label: "查看 GitHub 仓库",
-					},
-					{
-						type: "document",
-						href: "/projects/Internet Speed/Interenet Speedposter.pdf",
-						label: "打开项目海报 PDF",
-					},
-				],
-			},
-		],
 	},
 	about: {
 		badge: "关于我",

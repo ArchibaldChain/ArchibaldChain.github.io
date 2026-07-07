@@ -17,6 +17,29 @@ const allArticles = (await getCollection("articles"))
 
 const articles = allArticles.slice(0, 3);
 
+const getProjectLinks = (project: { github?: string; document?: string; publication?: string }, labels: { github: string; document: string; publication: string }) => [
+	...(project.github ? [{ type: "github" as const, href: project.github, label: labels.github }] : []),
+	...(project.document ? [{ type: "document" as const, href: project.document, label: labels.document }] : []),
+	...(project.publication ? [{ type: "external" as const, href: project.publication, label: labels.publication }] : []),
+];
+
+const allProjects = (await getCollection("projects"))
+	.filter((project) => project.data.featured)
+	.map((project) => ({
+		image: project.data.image ?? "",
+		date: project.data.date,
+		title: project.data.cardTitle ?? project.data.title,
+		description: project.data.description,
+		href: `/projects/${project.id.replace(/\.md$/, "")}.html`,
+		links: getProjectLinks(project.data, {
+			github: "View GitHub repository",
+			document: "Open project document",
+			publication: "Read published article",
+		}),
+		order: project.data.order,
+	}))
+	.sort((a, b) => a.order - b.order);
+
 ---
 
 <BaseLayout title={homeContent.title} includeTimeline>
@@ -97,7 +120,7 @@ const articles = allArticles.slice(0, 3);
 			<p class="section-lead text-muted">{homeContent.projectsSection.lead}</p>
 			<div class="section-body">
 				<div class="row col-spacing">
-					{homeContent.projectsSection.items.map((project) => <ProjectCard {...project} readMoreLabel={homeContent.projectsSection.readMoreLabel} />)}
+					{allProjects.map((project) => <ProjectCard {...project} readMoreLabel={homeContent.projectsSection.readMoreLabel} />)}
 				</div>
 			</div>
 		</div>

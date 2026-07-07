@@ -1,6 +1,10 @@
 ---
 title: "Statistical Analysis of Ookla Internet Speeds for Rural/Urban Canadian Communities"
+zhTitle: "加拿大城乡社区 Ookla 网速数据统计分析"
+description: "We visualized, processed, and analyzed the internet speed dataset provided by Ookla. We used logistic regression to predict future internet speed conditions and made recommendations based on the results."
+zhDescription: "我们对 Ookla 提供的互联网速度数据进行了可视化、清洗和统计分析，并使用逻辑回归预测未来网速状况，基于结果提出相关建议。"
 date: "May 2022"
+zhDate: "2022 年 5 月"
 tags:
   - Data Analysis
   - Logistic Regression
@@ -8,6 +12,8 @@ image: "/projects/Internet Speed/canada-internet-cover.png"
 github: "https://github.com/HH197/Case-Study-Competition"
 document: "/projects/Internet Speed/Interenet Speedposter.pdf"
 backHref: "/#project"
+featured: true
+order: 2
 ---
 
 #### Background
