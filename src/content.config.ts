@@ -34,6 +34,9 @@ const articles = defineCollection({
 		zhTitle: z.string().optional(),
 		zhDescription: z.string().optional(),
 		lang: z.string().default("en"),
+		// Companion notebook, shown as icons under the title (like project pages).
+		github: z.string().url().optional(),
+		colab: z.string().url().optional(),
 	}),
 });
 

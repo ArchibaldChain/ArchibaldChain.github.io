@@ -156,6 +156,21 @@ body {
 	line-height: 28px;
 }
 
+.article-read .article-content img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 28px auto;
+}
+
+
+.article-read .article-content blockquote {
+	margin: 28px 0;
+	padding: 4px 20px;
+	border-left: 3px solid #e5e7eb;
+	color: #52514e;
+}
+
 .article-read .article-content table {
 	width: 100%;
 	margin: 28px 0;
@@ -543,6 +558,13 @@ section.callout h3 {
 
 .meta .icon:last-child {
 	margin-right: 0;
+}
+
+/* Image icons (e.g. the Colab logo), sized to sit alongside the 20px icon font */
+.meta .icon img {
+	height: 16px;
+	width: auto;
+	align-self: center;
 }
 
 .list-item .desc h2 {

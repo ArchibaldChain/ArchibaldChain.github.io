@@ -25,6 +25,20 @@ const frontmatter = article.data;
 				</a>
 			</div>
 			<h1 class="article-title">{frontmatter.title}</h1>
+			{(frontmatter.github || frontmatter.colab) && (
+				<div class="meta">
+					{frontmatter.github && (
+						<a class="icon" href={frontmatter.github} target="_blank" title="View the notebook on GitHub">
+							<i class="ion-social-github"></i>
+						</a>
+					)}
+					{frontmatter.colab && (
+						<a class="icon" href={frontmatter.colab} target="_blank" title="Run the notebook in Google Colab">
+							<img src="/img/colab-logo.png" alt="Open in Colab" />
+						</a>
+					)}
+				</div>
+			)}
 			<div class="article-metas">
 				<div class="meta">{frontmatter.date}</div>
 				{frontmatter.lang && <div class="meta">{frontmatter.lang}</div>}
