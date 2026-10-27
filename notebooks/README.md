@@ -6,6 +6,7 @@ Each folder is self-contained: the notebook, the exact data it reads, and a note
 | Article | Notebook | Run it |
 |---|---|---|
 | [What drives Ontario's electricity demand?](https://archibaldchain.github.io/articles/ontario-load-weather-eda.html) | [`ontario-load-weather-eda/ontario-load-weather-eda.ipynb`](ontario-load-weather-eda/ontario-load-weather-eda.ipynb) | [Open in Colab](https://colab.research.google.com/github/ArchibaldChain/ArchibaldChain.github.io/blob/master/notebooks/ontario-load-weather-eda/ontario-load-weather-eda.ipynb) |
+| [Forecasting Ontario's electricity demand with a regression and SARIMA errors](https://archibaldchain.github.io/articles/sarimax-ontario-load.html) | [`sarimax-ontario-load/sarimax-ontario-load.ipynb`](sarimax-ontario-load/sarimax-ontario-load.ipynb) | [Open in Colab](https://colab.research.google.com/github/ArchibaldChain/ArchibaldChain.github.io/blob/master/notebooks/sarimax-ontario-load/sarimax-ontario-load.ipynb) |
 
 ## Running locally
 
