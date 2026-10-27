@@ -124,6 +124,8 @@ One detail matters more than it looks. The standard errors are the robust (HAC) 
 of this regression are strongly autocorrelated, and the usual standard errors, which assume independent errors, would make
 every term look several times more significant than it is.
 
+> **A note on HAC.** HAC stands for heteroskedasticity and autocorrelation consistent (here the Newey-West version). It estimates how uncertain a coefficient is while counting the correlation between errors up to 48 hours apart, with weights that fade as the gap grows. The coefficients are the same as in ordinary least squares; only the standard errors, and so the p-values, change.
+
 |  | coefficient (MW) | HAC se | t | p-value |  | plain OLS se |
 |---|---:|---:|---:|---:|---:|---:|
 | `const` | 14,410 | 44.4 | 324.4 | <0.0001 | \*\*\* | 10.1 |
